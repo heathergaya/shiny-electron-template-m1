@@ -1,0 +1,3 @@
+useDynLib("orca", .registration = TRUE)
+
+export(count4, count5, ecount4, ecount5)

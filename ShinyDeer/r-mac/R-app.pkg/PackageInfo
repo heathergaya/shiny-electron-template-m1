@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pkg-info overwrite-permissions="true" relocatable="false" identifier="org.R-project.arm64.R.GUI.pkg" postinstall-action="none" version="1.80" format-version="2" generator-version="InstallCmds-822 (22D68)" install-location="/Applications" auth="root">
+    <payload numberOfFiles="170" installKBytes="5329"/>
+    <bundle path="./R.app" id="org.R-project.R" CFBundleShortVersionString="R 4.4.1 GUI 1.80 Big Sur ARM build" CFBundleVersion="8416"/>
+    <bundle-version/>
+    <upgrade-bundle/>
+    <update-bundle/>
+    <atomic-update-bundle/>
+    <strict-identifier>
+        <bundle id="org.R-project.R"/>
+    </strict-identifier>
+    <relocate>
+        <bundle id="org.R-project.R"/>
+    </relocate>
+</pkg-info>

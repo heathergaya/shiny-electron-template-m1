@@ -1,0 +1,42 @@
+{
+  "name": "shinydeer",
+  "productName": "ShinyDeer",
+  "version": "1.0.0",
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "linux"
+          ],
+          "config": {}
+        }
+      ]
+    }
+  },
+  "description": "CWD infection model",
+  "main": "src/index.js",
+  "author": {
+    "name": "Heather Gaya",
+    "email": "heather.e.gaya@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zarathucorp/shiny-electron-template-m1"
+  },
+  "dependencies": {
+    "axios": "0.27.2",
+    "esm": "^3.2.25",
+    "execa": "^5.1.1"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.8.1",
+    "@electron-forge/maker-deb": "^7.8.1",
+    "@electron-forge/maker-zip": "^7.2.0",
+    "electron": "^26.6.7",
+    "fs-extra": "^11.2.0"
+  }
+}
