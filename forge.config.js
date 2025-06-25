@@ -11,7 +11,7 @@ if (platform === 'darwin') {
 
 module.exports = {
   packagerConfig: {
-    executableName: 'ShinyDeer',
+    executableName: 'shinydeer',
     icon: './icon',
     extraResources
   },
@@ -28,6 +28,7 @@ module.exports = {
     {
       name: '@electron-forge/maker-squirrel',
       config: {
+        name: 'shinydeer',  
         setupExe: 'ShinyDeerInstaller.exe',
         setupIcon: './icon.ico',
         shortcutName: 'ShinyDeer',
