@@ -8,6 +8,10 @@
     "name": "Heather Gaya",
     "email": "heather.e.gaya@gmail.com"
   },
+  "scripts": {
+  "start": "electron .",
+  "make": "electron-forge make"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
