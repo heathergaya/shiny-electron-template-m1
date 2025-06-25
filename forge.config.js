@@ -13,6 +13,11 @@ module.exports = {
       config: {},
     },
     {
+      name: '@electron-forge/maker-zip',
+      platforms: ['darwin'],
+      config: {},
+    },
+    {
       name: '@electron-forge/maker-squirrel',
       config: {},
     },
