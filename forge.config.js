@@ -1,24 +1,20 @@
+const os = require('os');
+
+let extraResources = [];
+const platform = process.platform;
+
+if (platform === 'darwin') {
+  extraResources = ['r-mac/fontconfig/fonts/conf.d'];
+} else if (platform === 'win32') {
+  extraResources = ['r-win'];
+}
+
 module.exports = {
-  packagerConfig: (arch, buildPlatform) => {
-    const commonConfig = {
-      executableName: 'ShinyDeer',
-      icon: './icon', // icon.ico for Windows, icon.icns for macOS
-    };
-
-    let extraResources = [];
-
-    if (buildPlatform === 'darwin') {
-      extraResources = ['r-mac/fontconfig/fonts/conf.d'];
-    } else if (buildPlatform === 'win32') {
-      extraResources = ['r-win/'];
-    }
-
-    return {
-      ...commonConfig,
-      extraResources,
-    };
+  packagerConfig: {
+    executableName: 'ShinyDeer',
+    icon: './icon',
+    extraResources
   },
-
   makers: [
     {
       name: '@electron-forge/maker-deb',
