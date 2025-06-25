@@ -1,12 +1,12 @@
 {
-  "name": "myapp",
-  "productName": "myapp",
+  "name": "ShinyDeer",
+  "productName": "ShinyDeer",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "CWD infection model",
   "main": "src/index.js",
   "author": {
-    "name": "jhk0530",
-    "email": "hwanistic@gmail.com"
+    "name": "Heather Gaya",
+    "email": "heather.e.gaya@gmail.com"
   },
   "license": "MIT",
   "repository": {
