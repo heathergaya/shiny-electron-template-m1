@@ -13,7 +13,12 @@ import execa from 'execa';
 
 // Helpers
 
-const rPath = 'r-mac';
+const rPath = os.platform() === 'win32' ? 'r-win' : 'r-mac';
+const rpath = path.join(app.getAppPath(), rPath);
+const libPath = path.join(rpath, 'library');
+const rscript = os.platform() === 'win32'
+  ? path.join(rpath, 'bin', 'R.exe') // Windows executable
+  : path.join(rpath, 'bin', 'R');
 
 const randomPort = (exclude) => {
   let min = 3000;
