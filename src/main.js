@@ -1,7 +1,6 @@
 // Copyright (c) 2018 Dirk Schumacher, Noam Ross, Rich FitzJohn
 // Copyright (c) 2024 Jinhwan Kim
-
-import { app, session, BrowserWindow } from 'electron';
+const { app, session, BrowserWindow } = require('electron');
 import path from 'path';
 import http from 'axios';
 import os from 'os';
