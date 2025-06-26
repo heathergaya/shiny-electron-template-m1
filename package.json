@@ -3,16 +3,22 @@
   "productName": "ShinyDeer",
   "version": "1.0.0",
   "description": "CWD infection model",
-  "main": "src/index.js",
+  "main": "src/main.js",
   "author": {
     "name": "Heather Gaya",
     "email": "heather.e.gaya@gmail.com"
   },
   "files": [
-  "src/**/*",
-  "main.js",
-  "index.js",
-  "package.json"
+  "src/**",
+  "src/main.js",
+  "src/index.js",
+  "package.json",
+  "start-shiny.R",
+  "shiny/**/*",
+  "r-win/**/*",
+  "r-mac/**/*",
+  "loading.html",
+  "failed.html"
   ],
   "scripts": {
   "start": "electron .",
