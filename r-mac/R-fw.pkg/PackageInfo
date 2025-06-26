@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pkg-info overwrite-permissions="true" relocatable="false" identifier="org.R-project.arm64.R.fw.pkg" postinstall-action="none" version="4.4.1" format-version="2" generator-version="InstallCmds-822 (22D68)" install-location="/Library/Frameworks" auth="root">
+    <payload numberOfFiles="3947" installKBytes="144884"/>
+    <bundle id="org.r-project.R-framework" CFBundleVersion="4.4.1" path="./R.framework"/>
+    <bundle-version/>
+    <upgrade-bundle/>
+    <update-bundle/>
+    <atomic-update-bundle/>
+    <strict-identifier/>
+    <relocate/>
+    <scripts>
+        <postinstall file="./postflight" component-id="org.r-project.R-framework"/>
+    </scripts>
+</pkg-info>
