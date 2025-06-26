@@ -1,10 +1,10 @@
 // Copyright (c) 2018 Dirk Schumacher, Noam Ross, Rich FitzJohn
 // Copyright (c) 2024 Jinhwan Kim
 const { app, session, BrowserWindow } = require('electron');
-import path from 'path';
-import http from 'axios';
-import os from 'os';
-import execa from 'execa';
+const path = require('path');
+const http = require('axios');
+const os = require('os');
+const execa = require('execa');
 
 // --- Setup ---
 const rPath = os.platform() === 'win32' ? 'r-win' : 'r-mac';
