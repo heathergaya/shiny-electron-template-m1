@@ -75,10 +75,6 @@ const tryStartWebserver = async (attempt, progressCallback, onErrorStartup, onEr
       }
     });
 
-    // Pipe logs to console
-    rShinyProcess.stdout?.on('data', data => console.log('[R stdout]', data.toString()));
-    rShinyProcess.stderr?.on('data', data => console.error('[R stderr]', data.toString()));
-
     const url = `http://127.0.0.1:${shinyPort}`;
     for (let i = 0; i < 50; i++) {
       if (shinyProcessAlreadyDead) break;
