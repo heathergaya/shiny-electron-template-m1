@@ -42,9 +42,6 @@ const waitFor = (milliseconds) => {
   })
 }
 
-const rpath = path.join(app.getAppPath(), rPath);
-const libPath = path.join(rpath, 'library');
-const rscript = path.join(rpath, 'bin', 'R');
 const shinyAppPath = path.join(app.getAppPath(), 'shiny');
 
 const backgroundColor = '#2c3e50'; // electron
