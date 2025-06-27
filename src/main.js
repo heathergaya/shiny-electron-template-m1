@@ -13,7 +13,7 @@ import execa from 'execa';
 
 // Helpers
 
-const rPath = 'r-mac';
+const rPath = process.platform === 'darwin' ? 'r-mac' : 'r-linux';
 
 const randomPort = (exclude) => {
   let min = 3000;

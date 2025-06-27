@@ -1,0 +1,233 @@
+---
+title: "Zone 2 Deer Forecast"
+output: html_document
+params:
+  initPrms: NA
+  TotPop: NA
+  TotPopGraph: NA
+  prev1: NA
+  prev2: NA
+  PrevsGraph: NA
+  PrevMap: NA
+  grid: NA
+  PrevMapAlt: NA
+  Lambda: NA
+  Age: NA
+  Densplot: NA
+---
+
+```{r setup, include=FALSE} 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE) 
+```
+
+## Simulation Parameters
+
+`r params$initPrms`
+
+## Density
+
+```{r}
+TotDens <- params$TotPop
+maxyear <- max(TotDens$t)
+TotDens2 <- subset(TotDens, TotDens$group == 'All' & TotDens$t %in% c(1, maxyear))
+
+```
+
+In year 1, the average deer density in Zone 2 was `r round(TotDens2$N[1], 2)`. By year `r maxyear`, the average deer density is predicted to be `r round(TotDens2$N[2], 2)`. 
+
+```{r}
+params$TotPopGraph
+```
+
+```{r}
+density <- params$Densplot/6.158
+grid0_plot <- params$grid
+for(j in c(1, maxyear)){
+grid0_plot$Density <- density[j,]
+grid0_plot$Density[stoch_dd_s$noGo] <- NA
+county_levels <- as.data.frame(grid0_plot %>%
+                  group_by(County) %>%
+                  summarize(Density = mean(Density, na.rm = T)))[c(1:3,6:7,9:10),]
+county_levels$Density <- round(county_levels$Density)
+county_levels$x <- c(561570.5,489570.5,459570.5,
+                           531470.5,481570.5,520570.5,570570.5)
+county_levels$y <- c(3997732, 4023732, 4031732,
+                           4005732,3981732,3975732, 3977732)
+
+print(ggplot() +
+        geom_tile(data= grid0_plot, aes(x = x, y = y, fill = Density), alpha = .8) +
+        #scale_fill_viridis_d(option = 'B', alpha = .8, limits = unique(levs))+
+        scale_fill_gradient2(low = 'black', mid  = 'pink',midpoint = .25, high = 'firebrick',
+                             na.value = 'white',
+                             limits = c(0,max(params$Densplot, na.rm = T)/6.178 + .4)
+                             )+
+        theme_minimal() +
+        geom_label(data = county_levels, aes(x = x, y=y, label = Density))+
+        theme(
+          strip.text = element_text(size = 10),  # Adjust facet labels
+          title = element_text(size = 20),
+          axis.title = element_blank(),
+          legend.text = element_text(size =18),
+          axis.text = element_blank(),
+          panel.grid = element_blank()
+        )+
+        ggtitle(paste0("Deer Density per Sq Mile in Time ", j))
+)
+}
+```
+
+## Population Growth Rate
+
+```{r}
+params$Lambda
+```
+
+
+## Age Ratios
+
+```{r}
+simpleage <- params$Age
+finalyear <- subset(simpleage, simpleage$t == maxyear)
+```
+
+In year `r maxyear`, the predicted age ratio of the population is predicted to be `r round(finalyear$N[1]*100, 2)`% fawns, `r round(finalyear$N[2]*100, 2)`% yearlings, and `r round(finalyear$N[3]*100, 2)`% adults. 
+
+```{r}
+ggplot(simpleage, aes(x = t, y = N, group = group, fill = group))+
+  geom_col(position = position_dodge2(preserve = 'single', width = .8), col = 'black', lwd = .8)+
+  theme_bw()+
+  scale_fill_manual(values = (c('#30586C', '#549EC3','#6BC9E3')))+
+  theme(axis.text = element_text(size = 20),
+        axis.ticks = element_blank(),
+        axis.title = element_text(size = 22),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 20),
+        strip.text = element_text(size = 20),
+        title = element_text(size = 20))
+
+```
+
+
+## CWD Prevalence 
+```{r}
+prevs_avg <- params$prev1
+prevs_avgAds <- subset(prevs_avg, prevs_avg$group == 'Adult Prevalence')
+prevs_avgAll <- subset(prevs_avg, prevs_avg$group != 'Adult Prevalence')
+prevs_bypix <- params$prev2
+prevs2 <- subset(prevs_bypix, prevs_bypix$t %in% c(1, maxyear))
+```
+
+In year 1, average prevalence across Zone 2 (including fawns) was `r round(prevs_avgAll$Prop[1], 2)`. Adult prevalence (only including yearlings and adults) was `r round(prevs_avgAds$Prop[1], 2)`. 
+
+In year `r maxyear`, average prevalence is predicted to be `r round(prevs_avgAll$Prop[maxyear], 2)` for all deer and `r round(prevs_avgAds$Prop[maxyear], 2)` for adult deer. 
+
+Prevalence in year `r maxyear` ranges from `r round(range(prevs2$Prop)[1],2) ` to `r round(range(prevs2$Prop)[2],2) ` depending on location. 
+
+
+```{r}
+params$PrevsGraph
+```
+
+Here prevalence refers to adult prevalence, as this number will most closely reflect test results and sample prevalence. 
+
+```{r}
+grid0_plot <- params$grid
+prevmap <- params$PrevMap
+for(t in c(1, maxyear)){
+myyear <- subset(prevmap, prevmap$time ==  t)
+grid0_plot$Prevalence <- myyear$AvgPrev
+grid0_plot$Prevalence[stoch_dd_s$noGo] <- NA
+county_levels <- as.data.frame(myyear %>% 
+                               group_by(county) %>% 
+                               summarize(Prev = mean(AvgPrev, na.rm = T)))[c(1:3,6:7,9:10),]
+county_levels$Prev <- round(county_levels$Prev, 2)
+county_levels$x <- c(561570.5,489570.5,459570.5,
+                      531470.5,481570.5,520570.5,570570.5)
+county_levels$y <- c(3997732, 4023732, 4031732,
+                      4005732,3981732,3975732, 3977732)
+     
+print(ggplot() +
+        geom_tile(data= grid0_plot, aes(x = x, y = y, fill = Prevalence), alpha = .8) +
+         scale_fill_viridis_c(option = 'B', alpha = .8, direction = 1,
+                              limits = c(0,max(prevmap$AvgPrev, na.rm = T) + .1))+
+        theme_minimal() + 
+        theme(
+          strip.text = element_text(size = 10),  # Adjust facet labels
+          title = element_text(size = 15),
+          legend.text = element_text(size =18),
+          axis.title = element_blank(),
+          axis.text = element_blank(),
+          panel.grid = element_blank()
+        )+
+        #geom_spatvector(data = counties, fill = NA, col = 'grey80', lwd = .5, lty = 2)+
+        #geom_spatvector(data = zone2, fill = NA, col = 'grey80', lwd = 1)+
+        geom_label(data = county_levels, aes(x = x, y=y, label = Prev))+
+        ggtitle(paste0("Predicted CWD Prevalence at Time ", t))
+)
+}
+```
+
+
+```{r}
+# for(t in c(maxyear)){
+# myyear <- subset(params$PrevMapAlt, params$PrevMapAlt$time ==  t)
+# grid0_plot$Prevalence <- myyear$prev
+# grid0_plot$Prevalence[stoch_dd_s$noGo] <- NA
+#      
+# print(ggplot() +
+#         geom_tile(data= grid0_plot, aes(x = x, y = y, fill = Prevalence), alpha = .8) +
+#          scale_fill_viridis_c(option = 'A', alpha = .8, direction = 1,
+#                               limits = c(0,max(params$PrevMapAlt$prev, na.rm = T) + .1))+
+#         theme_minimal() + 
+#         theme(
+#           strip.text = element_text(size = 10),  # Adjust facet labels
+#           title = element_text(size = 15),
+#           legend.text = element_text(size =18),
+#           axis.title = element_blank(),
+#           axis.text = element_blank(),
+#           panel.grid = element_blank()
+#         )+
+#         #geom_spatvector(data = counties, fill = NA, col = 'grey80', lwd = .5, lty = 2)+
+#         #geom_spatvector(data = zone2, fill = NA, col = 'grey80', lwd = 1)+
+#         #geom_label(data = county_levels, aes(x = x, y=y, label = Prev))+
+#         ggtitle(paste0("Predicted CWD Prevalence at Time ", t))
+# )
+# }
+```
+
+## Infection Model:
+
+The infection model takes into account both the density of infected deer in the current year (x-axis) and the density of infected deer in the previous year (panels)
+
+
+```{r}
+eta_d <- function(x, y){.25*(1-exp(-.974*(.75*x + .25*y)))} #x= current pos dens, y = prev
+curr_inf <- seq(0, 5, by = .1)
+prev_inf <- c(0, 1, 3, 5)
+inf <- array(NA, c(length(curr_inf), length(prev_inf)))
+for(j in 1:length(curr_inf)){
+  for(k in 1:length(prev_inf)){
+    inf[j,k] <- eta_d(curr_inf[j], prev_inf[k])
+  }
+}
+
+gg_inf <- data.frame(inf = c(inf),
+                     current = rep(curr_inf, length(prev_inf)),
+                     `Previous Infected Density` = rep(prev_inf, each= length(curr_inf)))
+gg_inf$`Previous Year's Infected Density` <- as.factor(gg_inf$Previous.Infected.Density)
+ggplot(gg_inf, aes(x = current, y = inf, col = `Previous Year's Infected Density`))+
+  geom_line()+
+  facet_wrap(~`Previous Year's Infected Density`)+
+  theme_bw()+
+  ylab("Infection Probability")+
+  xlab("Infected Deer Density (per square mile)")+
+  theme(strip.text = element_text(size = 15),  # Adjust facet labels
+        axis.text = element_text(size = 15),
+        legend.text = element_text(size =10),
+        legend.title =element_text(size = 12) )
+
+```
+
+
+Report created:  `r Sys.time()` 
+

@@ -623,6 +623,7 @@ I_2sex <- function(
     #this could be more efficient in a model, but okay for simulation
     for(m in 1:nStates){ #each state 
       for(q in 1:nPix){
+      if(q %in% noGo){next} #ignore non-boundary pixels
       if(sum(survivors[m,t,-noGo]) == 0) next
         n_bigmoves[m,t, q, 1:nPix] <- rmulti(1, size = survivors[m,t,q], move_probs_norm[q, 1:nPix, m])
       }
@@ -630,6 +631,7 @@ I_2sex <- function(
     
     for(m in 1:nStates){
       for(q in 1:nPix){
+      if(q %in% noGo){next} #ignore non-boundary pixels
     n[m,t,q] <- sum(n_bigmoves[m,t,1:nPix,q]) #how many ended in this pixel
     if(m != 1 & m != 7){n_post_move[m,t,q] <- n[m,t,q]}
       }
@@ -764,7 +766,6 @@ I_2sex <- function(
 #### For spatial model, need a surface ####
 library(terra)
 library(latticeExtra)
-library(PoissonMultinomial)
 #dem <- scale(rast('AR_DEM_4Kres.tif'))
 #dem <- scale(readRDS('AR_DEM-4K_2.rds'))
 dem <- rast('cellholder.tif')
