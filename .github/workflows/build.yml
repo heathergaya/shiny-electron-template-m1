@@ -53,4 +53,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: macos-zip
-          path: out/make/**/*.zip
+          path: out/make/zip/darwin/x64/*.zip

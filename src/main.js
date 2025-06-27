@@ -107,6 +107,24 @@ const tryStartWebserver = async (attempt, progressCallback, onErrorStartup, onEr
     } catch (e) { }
   }
   await progressCallback({attempt: attempt, code: 'notresponding'})
+=======
+    });
+
+    const url = `http://127.0.0.1:${shinyPort}`;
+    for (let i = 0; i < 50; i++) {
+      if (shinyProcessAlreadyDead) break;
+      await waitFor(500);
+      try {
+        const res = await http.head(url, { timeout: 1000 });
+        if (res.status === 200) {
+          shinyRunning = true;
+          await progressCallback({ attempt, code: 'success' });
+          console.log(`Shiny server is up at ${url}`);
+          onSuccess(url);
+          return;
+        }
+      } catch (e) { }
+    }
 
   try { rShinyProcess.kill() } catch (e) {}
 }
