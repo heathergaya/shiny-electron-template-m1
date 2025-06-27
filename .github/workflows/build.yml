@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Make Linux .deb package
-        run: npx electron-forge make --platform=linux --arch=x64
+        run: npx electron-forge make --platform=linux --arch=arm64
 
       - name: Upload .deb artifact
         uses: actions/upload-artifact@v4
