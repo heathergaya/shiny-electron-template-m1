@@ -1,130 +1,108 @@
 // Copyright (c) 2018 Dirk Schumacher, Noam Ross, Rich FitzJohn
 // Copyright (c) 2024 Jinhwan Kim
-import { 
-  app, 
-  session, 
-  BrowserWindow 
-} from 'electron'
-
-import path from 'path';
-import http from 'axios';
-import os from 'os';
-import execa from 'execa';
+import { app, session, BrowserWindow } from 'electron'
+import path from 'path'
+import http from 'axios'
+import os from 'os'
+import execa from 'execa'
 
 // Helpers
-
-const rPath = process.platform === 'darwin' ? 'r-mac' : 'r-linux';
+const rPath = process.platform === 'darwin' ? 'r-mac' : 'r-linux'
 
 const randomPort = (exclude) => {
-  let min = 3000;
-  let max = 8000;
-  let randomInt = Math.floor(Math.random() * (max - min + 1)) + min;
+  let min = 3000
+  let max = 8000
+  let randomInt = Math.floor(Math.random() * (max - min + 1)) + min
   while (exclude.includes(randomInt)) {
-    randomInt = Math.floor(Math.random() * (max - min + 1)) + min;
+    randomInt = Math.floor(Math.random() * (max - min + 1)) + min
   }
-  return randomInt;
+  return randomInt
 }
 
-let shinyPort = randomPort(
-  [3659, 4045, 5060, 5061, 6000, 6566, 6665, 6666, 6667, 6668, 6669, 6697]
-);
-// forbiden ports at 2024-01-28
+let shinyPort = randomPort([
+  3659, 4045, 5060, 5061, 6000, 6566,
+  6665, 6666, 6667, 6668, 6669, 6697
+])
+// forbidden ports as of 2024-01-28
 // https://chromium.googlesource.com/chromium/src.git/+/refs/heads/master/net/base/port_util.cc
 
 const waitFor = (milliseconds) => {
-  return new Promise((resolve, _reject) => {
-    setTimeout(resolve, milliseconds);
+  return new Promise((resolve) => {
+    setTimeout(resolve, milliseconds)
   })
 }
 
-const rpath = path.join(app.getAppPath(), rPath);
-const libPath = path.join(rpath, 'library');
-const rscript = path.join(rpath, 'bin', 'R');
-const shinyAppPath = path.join(app.getAppPath(), 'shiny');
+const rpath = path.join(app.getAppPath(), rPath)
+const libPath = path.join(rpath, 'library')
+const rscript = path.join(rpath, 'bin', 'R')
+const shinyAppPath = path.join(app.getAppPath(), 'shiny')
 
-const backgroundColor = '#2c3e50'; // electron
+const backgroundColor = '#2c3e50' // electron
 
-let shutdown = false;
-let rShinyProcess = null;
+let shutdown = false
+let rShinyProcess = null
 
 const tryStartWebserver = async (attempt, progressCallback, onErrorStartup, onErrorLater, onSuccess) => {
-   if (attempt > 100) {
-     await progressCallback({attempt: attempt, code: 'failed'})
-     await onErrorStartup()
-     return
-   }
+  if (attempt > 100) {
+    await progressCallback({ attempt, code: 'failed' })
+    await onErrorStartup()
+    return
+  }
 
-   if (rShinyProcess !== null) {
-     await onErrorStartup() // should not happen
-     return
-   }
+  if (rShinyProcess !== null) {
+    await onErrorStartup() // should not happen
+    return
+  }
 
-   await progressCallback({attempt: attempt, code: 'start'})
+  await progressCallback({ attempt, code: 'start' })
 
-   let shinyRunning = false
-   const onError = async (e) => {
-     console.error(e)
-     rShinyProcess = null
-     if (shutdown) { // global state :(
-       return
-     }
-     if (shinyRunning) {
-       await onErrorLater()
-     } else {
-       await tryStartWebserver(attempt + 1, progressCallback, onErrorStartup, onErrorLater, onSuccess)
-     }
-   }
+  let shinyRunning = false
+  let shinyProcessAlreadyDead = false
 
-   let shinyProcessAlreadyDead = false
-   rShinyProcess = execa(rscript,
-     ['--vanilla', '-f', path.join(app.getAppPath(), 'start-shiny.R')], { 
-       env: {
-         'WITHIN_ELECTRON': '1', 
-         'RHOME': rpath,
-         'R_HOME_DIR': rpath,
-         'RE_SHINY_PORT': shinyPort,
-         'RE_SHINY_PATH': shinyAppPath,
-         'R_LIBS': libPath,
-         'R_LIBS_USER': libPath,
-         'R_LIBS_SITE': libPath,
-         'R_LIB_PATHS': libPath} }).catch((e) => {
-           shinyProcessAlreadyDead = true
-           onError(e)
-         })
+  const onError = async (e) => {
+    console.error(e)
+    rShinyProcess = null
+    if (shutdown) return
+    if (shinyRunning) {
+      await onErrorLater()
+    } else {
+      await tryStartWebserver(attempt + 1, progressCallback, onErrorStartup, onErrorLater, onSuccess)
+    }
+  }
 
-  let url = `http://127.0.0.1:${shinyPort}`
+  rShinyProcess = execa(rscript, ['--vanilla', '-f', path.join(app.getAppPath(), 'start-shiny.R')], {
+    env: {
+      'WITHIN_ELECTRON': '1',
+      'RHOME': rpath,
+      'R_HOME_DIR': rpath,
+      'RE_SHINY_PORT': shinyPort,
+      'RE_SHINY_PATH': shinyAppPath,
+      'R_LIBS': libPath,
+      'R_LIBS_USER': libPath,
+      'R_LIBS_SITE': libPath,
+      'R_LIB_PATHS': libPath
+    }
+  }).catch((e) => {
+    shinyProcessAlreadyDead = true
+    onError(e)
+  })
+
+  const url = `http://127.0.0.1:${shinyPort}`
   for (let i = 0; i <= 50; i++) {
-    if (shinyProcessAlreadyDead) { break }
+    if (shinyProcessAlreadyDead) break
     await waitFor(500)
     try {
-      const res = await http.head(url, {timeout: 1000})
+      const res = await http.head(url, { timeout: 1000 })
       if (res.status === 200) {
-        await progressCallback({attempt: attempt, code: 'success'})
+        await progressCallback({ attempt, code: 'success' })
         shinyRunning = true
         onSuccess(url)
         return
       }
-    } catch (e) { }
+    } catch (e) {}
   }
-  await progressCallback({attempt: attempt, code: 'notresponding'})
-    });
 
-    const url = `http://127.0.0.1:${shinyPort}`;
-    for (let i = 0; i < 50; i++) {
-      if (shinyProcessAlreadyDead) break;
-      await waitFor(500);
-      try {
-        const res = await http.head(url, { timeout: 1000 });
-        if (res.status === 200) {
-          shinyRunning = true;
-          await progressCallback({ attempt, code: 'success' });
-          console.log(`Shiny server is up at ${url}`);
-          onSuccess(url);
-          return;
-        }
-      } catch (e) { }
-    }
-
+  await progressCallback({ attempt, code: 'notresponding' })
   try { rShinyProcess.kill() } catch (e) {}
 }
 
@@ -137,7 +115,6 @@ const createWindow = (shinyUrl) => {
     width: 1600,
     height: 900,
     show: false,
-    // icon: __dirname + '/favicon.ico',
     autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: false,
@@ -159,7 +136,7 @@ const splashScreenOptions = {
 }
 
 const createSplashScreen = (filename) => {
-  let splashScreen = new BrowserWindow(splashScreenOptions);
+  let splashScreen = new BrowserWindow(splashScreenOptions)
   splashScreen.loadURL(`file://${__dirname}/${filename}.html`)
   splashScreen.on('closed', () => { splashScreen = null })
   return splashScreen
@@ -177,13 +154,16 @@ app.on('ready', async () => {
   // Set a content security policy
   session.defaultSession.webRequest.onHeadersReceived((_, callback) => {
     callback({
-      responseHeaders: `
-        default-src 'none';
-        script-src 'self';
-        img-src 'self' data:;
-        style-src 'self';
-        font-src 'self';
-    `})
+      responseHeaders: {
+        'Content-Security-Policy': [
+          "default-src 'none';",
+          "script-src 'self';",
+          "img-src 'self' data:;",
+          "style-src 'self';",
+          "font-src 'self';"
+        ].join(' ')
+      }
+    })
   })
 
   session.defaultSession.setPermissionRequestHandler((_1, _2, callback) => {
@@ -203,14 +183,14 @@ app.on('ready', async () => {
   }
 
   const onErrorLater = async () => {
-    if (!mainWindow) { return }
+    if (!mainWindow) return
     createErrorScreen()
     await errorSplashScreen.show()
     mainWindow.destroy()
   }
 
   const onErrorStartup = async () => {
-    await waitFor(10000) // TODO: hack, only emit if the loading screen is ready
+    await waitFor(10000) // wait to ensure splash is ready
     await emitSpashEvent('failed')
   }
 
@@ -229,7 +209,5 @@ app.on('ready', async () => {
 app.on('window-all-closed', () => {
   shutdown = true
   app.quit()
-  try {
-  rShinyProcess.kill()
-  } catch (e) {}
+  try { rShinyProcess.kill() } catch (e) {}
 })
