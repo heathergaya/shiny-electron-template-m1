@@ -107,7 +107,6 @@ const tryStartWebserver = async (attempt, progressCallback, onErrorStartup, onEr
     } catch (e) { }
   }
   await progressCallback({attempt: attempt, code: 'notresponding'})
-=======
     });
 
     const url = `http://127.0.0.1:${shinyPort}`;
