@@ -20,7 +20,6 @@ library(tidyterra)
 library(stringi)
 library(nimble)
 library(latticeExtra)
-library(PoissonMultinomial)
 #library(popbio)
 
 ## important for spatial visualization
