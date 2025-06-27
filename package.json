@@ -14,11 +14,7 @@
   "src/index.js",
   "package.json",
   "start-shiny.R",
-  "shiny/**/*",
-  "r-win/**/*",
-  "r-mac/**/*",
-  "loading.html",
-  "failed.html"
+  "shiny/**/*"
   ],
   "scripts": {
   "start": "electron .",
