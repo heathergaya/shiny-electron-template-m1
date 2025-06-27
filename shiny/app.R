@@ -12,7 +12,6 @@ library(ggplot2)
 library(plotly)
 library(orca)
 library(leaflet)
-library(geojsonio)
 library(sf)
 library(jsonlite)
 library(rjson)
@@ -20,6 +19,8 @@ library(terra)
 library(tidyterra)
 library(stringi)
 library(nimble)
+library(latticeExtra)
+library(PoissonMultinomial)
 #library(popbio)
 
 ## important for spatial visualization
@@ -141,7 +142,7 @@ ui <- dashboardPage(
                     #        )),#end div and column
                     column(3,
                            div(class = "box-section",
-                               numericInput("nocc_dd_s", label = "Years (max 10)", value = 5, min = 2, max = 30, step = 1)
+                               numericInput("nocc_dd_s", label = "Years (max 10)", value = 5, min = 2, max = 10, step = 1)
                            )),
                     column(2,
                            div(class = "box-section",
@@ -279,7 +280,7 @@ server <- function(input, output, session) {
 
   #### Spatial stochastic w/ two sex and DD in transmission ####
   observeEvent(input$do, {
-    req(input$nocc_dd_s >= 2); req(all(!is.null(input$Survival))); req(all(!is.null(input$sigmas_dd_s))); req(input$BL_dd_s); req(input$DL_dd_s)#; req(input$BL_dd_s ==2)
+    req(input$nocc_dd_s >= 2); req(input$nocc_dd_s <= 10); req(all(!is.null(input$Survival))); req(all(!is.null(input$sigmas_dd_s))); req(input$BL_dd_s >= 0 & input$BL_dd_s <= 3); req(input$DL_dd_s >= 0 & input$DL_dd_s <=4)#; req(input$BL_dd_s ==2)
     
     q_dd_s1      <<- .5
     nocc_dd_s1   <<- input$nocc_dd_s

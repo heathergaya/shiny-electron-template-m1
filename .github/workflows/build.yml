@@ -1,4 +1,4 @@
-name: Build Electron Apps (.deb, .exe)
+name: Build Electron Apps (.deb)
 
 on:
   push:
@@ -32,21 +32,6 @@ jobs:
         with:
           name: linux-deb
           path: out/make/deb/**/*.deb
-  
-  build-windows:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-      - run: npm ci
-      - run: npm run make
-      - uses: actions/upload-artifact@v4
-        with:
-          name: windows-exe
-          path: out/make/squirrel.windows/x64/
 
   build-macos:
     runs-on: macos-latest

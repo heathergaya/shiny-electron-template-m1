@@ -3,7 +3,7 @@
   "productName": "ShinyDeer",
   "version": "1.0.0",
   "description": "CWD infection model",
-  "main": "src/main.js",
+  "main": "src/index.js",
   "author": {
     "name": "Heather Gaya",
     "email": "heather.e.gaya@gmail.com"

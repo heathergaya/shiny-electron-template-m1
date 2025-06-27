@@ -1,0 +1,12 @@
+Package: tcltk
+Version: 4.4.1
+Priority: base
+Title: Tcl/Tk Interface
+Author: R Core Team
+Maintainer: R Core Team <do-use-Contact-address@r-project.org>
+Contact: R-help mailing list <r-help@r-project.org>
+Description: Interface and language bindings to Tcl/Tk GUI elements.
+License: Part of R 4.4.1
+Imports: utils
+NeedsCompilation: yes
+Built: R 4.4.1; aarch64-apple-darwin20; 2024-06-15 17:27:46 UTC; unix
