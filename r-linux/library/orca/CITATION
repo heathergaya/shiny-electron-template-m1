@@ -1,0 +1,23 @@
+bibentry(bibtype = "Article",
+  title        = "Computation of Graphlet Orbits for Nodes and Edges in Sparse Graphs",
+  author       = c(person(given = "Toma\\v{z}",
+                          family = "Ho\\v{c}evar",
+                          email = "tomaz.hocevar@fri.uni-lj.si"),
+                   person(given = "Janez",
+                          family = "Dem\\v{s}ar",
+                          email = "janez.demsar@fri.uni-lj.si")),
+  journal      = "Journal of Statistical Software",
+  year         = "2016",
+  volume       = "71",
+  number       = "10",
+  pages        = "1--24",
+  doi          = "10.18637/jss.v071.i10",
+
+  header       = "To cite orca in publications use:",
+  textVersion  =
+  paste("Toma\v{z} Ho\v{c}evar, Janez Dem\v{s}ar (2016).",
+        "Computation of Graphlet Orbits for Nodes and Edges in Sparse Graphs.",
+        "Journal of Statistical Software, 71(10), 1-24.",
+        "doi:10.18637/jss.v071.i10")
+)
+

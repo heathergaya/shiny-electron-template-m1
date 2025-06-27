@@ -1,0 +1,8 @@
+%>%	pipe
+automagic	automagic
+get_dependent_packages	get_dependent_packages
+get_package_details	get_package_details
+install_deps_file	install_deps_file
+install_package_guess	install_package_guess
+make_deps_file	make_deps_file
+parse_packages	parse_packages

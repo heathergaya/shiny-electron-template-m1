@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html>
+<head><title>R: MCMC, Particle Filtering, and Programmable Hierarchical Modeling</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+<h1> MCMC, Particle Filtering, and Programmable Hierarchical Modeling
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;nimble&rsquo; version 1.3.0</h2>
+
+<ul><li><a href="../DESCRIPTION" type="text/plain; charset=utf-8">DESCRIPTION file</a>.</li>
+<li><a href="../NEWS.md">Package NEWS</a>.</li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<p style="text-align: center;">
+<a href="#A">A</a>
+<a href="#B">B</a>
+<a href="#C">C</a>
+<a href="#D">D</a>
+<a href="#E">E</a>
+<a href="#F">F</a>
+<a href="#G">G</a>
+<a href="#H">H</a>
+<a href="#I">I</a>
+<a href="#K">K</a>
+<a href="#L">L</a>
+<a href="#M">M</a>
+<a href="#N">N</a>
+<a href="#O">O</a>
+<a href="#P">P</a>
+<a href="#Q">Q</a>
+<a href="#R">R</a>
+<a href="#S">S</a>
+<a href="#T">T</a>
+<a href="#V">V</a>
+<a href="#W">W</a>
+<a href="#misc">misc</a>
+</p>
+
+
+<h2><a id="A">-- A --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="nimDerivs.html">AD</a></td>
+<td>Nimble Derivatives</td></tr>
+<tr><td style="width: 25%;"><a href="ADbreak.html">ADbreak</a></td>
+<td>NIMBLE language function to break tracking of derivatives</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">addMonitors</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">addMonitors2</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">addSampler</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="ADNimbleList.html">ADNimbleList</a></td>
+<td>Data type for the return value of 'nimDerivs'</td></tr>
+<tr><td style="width: 25%;"><a href="ADproxyModelClass-class.html">ADproxyModelClass</a></td>
+<td>create an ADproxyModelClass object</td></tr>
+<tr><td style="width: 25%;"><a href="ADproxyModelClass-class.html">ADproxyModelClass-class</a></td>
+<td>create an ADproxyModelClass object</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">AF_slice</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="laplace.html">AGHQ</a></td>
+<td>Laplace approximation and adaptive Gauss-Hermite quadrature</td></tr>
+<tr><td style="width: 25%;"><a href="laplace.html">AGHQuad</a></td>
+<td>Laplace approximation and adaptive Gauss-Hermite quadrature</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">AGHQuad_params</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">AGHQuad_summary</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-R-functions.html">all</a></td>
+<td>NIMBLE language functions for R-like vector construction</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-R-functions.html">any</a></td>
+<td>NIMBLE language functions for R-like vector construction</td></tr>
+<tr><td style="width: 25%;"><a href="any_na.html">any_na</a></td>
+<td>Determine if any values in a vector are NA or NaN</td></tr>
+<tr><td style="width: 25%;"><a href="any_na.html">any_nan</a></td>
+<td>Determine if any values in a vector are NA or NaN</td></tr>
+<tr><td style="width: 25%;"><a href="nimMatrix.html">array</a></td>
+<td>Creates matrix or array objects for use in nimbleFunctions</td></tr>
+<tr><td style="width: 25%;"><a href="as.carAdjacency.html">as.carAdjacency</a></td>
+<td>Convert CAR structural parameters to adjacency, weights, num format</td></tr>
+<tr><td style="width: 25%;"><a href="as.carCM.html">as.carCM</a></td>
+<td>Convert weights vector to parameters of 'dcar_proper' distributio</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">as.list.modelValuesBaseClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">as.matrix.modelValuesBaseClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="asRow.html">asCol</a></td>
+<td>Turn a numeric vector into a single-row or single-column matrix</td></tr>
+<tr><td style="width: 25%;"><a href="asRow.html">asRow</a></td>
+<td>Turn a numeric vector into a single-row or single-column matrix</td></tr>
+<tr><td style="width: 25%;"><a href="autoBlock.html">autoBlock</a></td>
+<td>Automated parameter blocking procedure for efficient MCMC sampling</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">autoBlockClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+</table>
+
+<h2><a id="B">-- B --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="samplers.html">barker</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">besselK</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">binary</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">BUGScontextClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="BUGSdeclClass-class.html">BUGSdeclClass</a></td>
+<td>BUGSdeclClass contains the information extracted from one BUGS declaration</td></tr>
+<tr><td style="width: 25%;"><a href="BUGSdeclClass-class.html">BUGSdeclClass-class</a></td>
+<td>BUGSdeclClass contains the information extracted from one BUGS declaration</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">BUGSsingleContextClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="laplace.html">buildAGHQ</a></td>
+<td>Laplace approximation and adaptive Gauss-Hermite quadrature</td></tr>
+<tr><td style="width: 25%;"><a href="buildAGHQGrid.html">buildAGHQGrid</a></td>
+<td>Build Adaptive Gauss-Hermite Quadrature Grid</td></tr>
+<tr><td style="width: 25%;"><a href="buildAuxiliaryFilter.html">buildAuxiliaryFilter</a></td>
+<td>Placeholder for buildAuxiliaryFilter</td></tr>
+<tr><td style="width: 25%;"><a href="buildBootstrapFilter.html">buildBootstrapFilter</a></td>
+<td>Placeholder for buildBootstrapFilter</td></tr>
+<tr><td style="width: 25%;"><a href="buildEnsembleKF.html">buildEnsembleKF</a></td>
+<td>Placeholder for buildEnsembleKF</td></tr>
+<tr><td style="width: 25%;"><a href="buildIteratedFilter2.html">buildIteratedFilter2</a></td>
+<td>Placeholder for buildIteratedFilter2</td></tr>
+<tr><td style="width: 25%;"><a href="laplace.html">buildLaplace</a></td>
+<td>Laplace approximation and adaptive Gauss-Hermite quadrature</td></tr>
+<tr><td style="width: 25%;"><a href="buildLiuWestFilter.html">buildLiuWestFilter</a></td>
+<td>Placeholder for buildLiuWestFilter</td></tr>
+<tr><td style="width: 25%;"><a href="buildMacro.html">buildMacro</a></td>
+<td>EXPERIMENTAL: Turn a function into a model macro</td></tr>
+<tr><td style="width: 25%;"><a href="buildMCEM.html">buildMCEM</a></td>
+<td>Builds an MCEM algorithm for a given NIMBLE model</td></tr>
+<tr><td style="width: 25%;"><a href="buildMCMC.html">buildMCMC</a></td>
+<td>Create an MCMC object from a NIMBLE model, or an MCMC configuration object</td></tr>
+<tr><td style="width: 25%;"><a href="waic.html">buildWAIC</a></td>
+<td>Using WAIC</td></tr>
+</table>
+
+<h2><a id="C">-- C --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="nimble-R-functions.html">c</a></td>
+<td>NIMBLE language functions for R-like vector construction</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">calcAdaptationFactor</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="simNodes.html">calcNodes</a></td>
+<td>Basic nimbleFunctions for calculate, simulate, and getLogProb with a set of nodes</td></tr>
+<tr><td style="width: 25%;"><a href="simNodesMV.html">calcNodesMV</a></td>
+<td>Basic nimbleFunctions for using a NIMBLE model with sets of stored values</td></tr>
+<tr><td style="width: 25%;"><a href="nodeFunctions.html">calculate</a></td>
+<td>calculate, calculateDiff, simulate, or get the current log probabilities (densities) a set of nodes in a NIMBLE model</td></tr>
+<tr><td style="width: 25%;"><a href="nodeFunctions.html">calculateDiff</a></td>
+<td>calculate, calculateDiff, simulate, or get the current log probabilities (densities) a set of nodes in a NIMBLE model</td></tr>
+<tr><td style="width: 25%;"><a href="calculateWAIC.html">calculateWAIC</a></td>
+<td>Calculating WAIC using an offline algorithm</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">calc_dcatConjugacyContributions</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">calc_dmnormAltParams</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">calc_dmnormConjugacyContributions</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">calc_dwishAltParams</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="CAR-Normal.html">CAR-Normal</a></td>
+<td>The CAR-Normal Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="CAR-Proper.html">CAR-Proper</a></td>
+<td>The CAR-Proper Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="carBounds.html">carBounds</a></td>
+<td>Calculate bounds for the autocorrelation parameter of the 'dcar_proper' distribution</td></tr>
+<tr><td style="width: 25%;"><a href="carMaxBound.html">carMaxBound</a></td>
+<td>Calculate the upper bound for the autocorrelation parameter of the 'dcar_proper' distribution</td></tr>
+<tr><td style="width: 25%;"><a href="carMinBound.html">carMinBound</a></td>
+<td>Calculate the lower bound for the autocorrelation parameter of the 'dcar_proper' distribution</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">CAR_calcC</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">CAR_calcCmatrix</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">CAR_calcEVs2</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">CAR_calcEVs3</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">CAR_calcM</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="CAR_calcNumIslands.html">CAR_calcNumIslands</a></td>
+<td>Calculate number of islands based on a CAR adjacency matrix.</td></tr>
+<tr><td style="width: 25%;"><a href="nimCat.html">cat</a></td>
+<td>cat function for use in nimbleFunctions</td></tr>
+<tr><td style="width: 25%;"><a href="Categorical.html">Categorical</a></td>
+<td>The Categorical Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">categorical</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">cc_getNodesInExpr</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">checkConjugacy</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="checkInterrupt.html">checkInterrupt</a></td>
+<td>Check for interrupt (e.g. Ctrl-C) during nimbleFunction execution. Part of the NIMBLE language.</td></tr>
+<tr><td style="width: 25%;"><a href="ChineseRestaurantProcess.html">ChineseRestaurantProcess</a></td>
+<td>The Chinese Restaurant Process Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="clearCompiled.html">clearCompiled</a></td>
+<td>Clear compiled objects from a project and unload shared library</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">cloglog</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+<tr><td style="width: 25%;"><a href="CmodelBaseClass-class.html">CmodelBaseClass</a></td>
+<td>Class 'CmodelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="CmodelBaseClass-class.html">CmodelBaseClass-class</a></td>
+<td>Class 'CmodelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">CmultiNimbleFunctionClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">CmultiNimbleListClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">CmultiNimbleObjClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="CnimbleFunctionBase-class.html">CnimbleFunctionBase</a></td>
+<td>Class 'CnimbleFunctionBase'</td></tr>
+<tr><td style="width: 25%;"><a href="CnimbleFunctionBase-class.html">CnimbleFunctionBase-class</a></td>
+<td>Class 'CnimbleFunctionBase'</td></tr>
+<tr><td style="width: 25%;"><a href="codeBlockClass-class.html">codeBlockClass</a></td>
+<td>Class 'codeBlockClass'</td></tr>
+<tr><td style="width: 25%;"><a href="codeBlockClass-class.html">codeBlockClass-class</a></td>
+<td>Class 'codeBlockClass'</td></tr>
+<tr><td style="width: 25%;"><a href="compileNimble.html">compileNimble</a></td>
+<td>compile NIMBLE models and nimbleFunctions</td></tr>
+<tr><td style="width: 25%;"><a href="configureMCMC.html">configureMCMC</a></td>
+<td>Build the MCMCconf object for construction of an MCMC object</td></tr>
+<tr><td style="width: 25%;"><a href="configureRJ.html">configureRJ</a></td>
+<td>Configure Reversible Jump for Variable Selection</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">conjugacyClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">conjugacyRelationshipsClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="Constraint.html">Constraint</a></td>
+<td>Constraint calculations in NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimCopy.html">copy</a></td>
+<td>Copying function for NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">copyExprClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">cppBUGSmodelClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">cppCodeFileClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">cppCPPfileClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">cppHfileClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">cppModelValuesClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">cppNamedObjectsClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">cppNimbleClassClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">cppNimbleFunctionClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">cppNimbleListClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">cppProjectClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">cppVirtualNimbleFunctionClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">crossLevel</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">CRP</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">CRP_concentration</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">cube</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+</table>
+
+<h2><a id="D">-- D --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="CAR-Normal.html">dcar_normal</a></td>
+<td>The CAR-Normal Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="CAR-Proper.html">dcar_proper</a></td>
+<td>The CAR-Proper Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Categorical.html">dcat</a></td>
+<td>The Categorical Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Constraint.html">dconstraint</a></td>
+<td>Constraint calculations in NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="ChineseRestaurantProcess.html">dCRP</a></td>
+<td>The Chinese Restaurant Process Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Double-Exponential.html">ddexp</a></td>
+<td>The Double Exponential (Laplace) Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Dirichlet.html">ddirch</a></td>
+<td>The Dirichlet Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="decide.html">decide</a></td>
+<td>Makes the Metropolis-Hastings acceptance decision, based upon the input (log) Metropolis-Hastings ratio</td></tr>
+<tr><td style="width: 25%;"><a href="decideAndJump.html">decideAndJump</a></td>
+<td>Creates a nimbleFunction for executing the Metropolis-Hastings jumping decision, and updating values in the model, or in a carbon copy modelValues object, accordingly.</td></tr>
+<tr><td style="width: 25%;"><a href="declare.html">declare</a></td>
+<td>Explicitly declare a variable in run-time code of a nimbleFunction</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">dependentClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="deregisterDistributions.html">deregisterDistributions</a></td>
+<td>Remove user-supplied distributions from use in NIMBLE BUGS models</td></tr>
+<tr><td style="width: 25%;"><a href="nimDerivs.html">derivs</a></td>
+<td>Nimble Derivatives</td></tr>
+<tr><td style="width: 25%;"><a href="Exponential.html">dexp_nimble</a></td>
+<td>The Exponential Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="flat.html">dflat</a></td>
+<td>The Improper Uniform Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="flat.html">dhalfflat</a></td>
+<td>The Improper Uniform Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-R-functions.html">diag</a></td>
+<td>NIMBLE language functions for R-like vector construction</td></tr>
+<tr><td style="width: 25%;"><a href="nimDim.html">dim</a></td>
+<td>return sizes of an object whether it is a vector, matrix or array</td></tr>
+<tr><td style="width: 25%;"><a href="Interval.html">dinterval</a></td>
+<td>Interval calculations</td></tr>
+<tr><td style="width: 25%;"><a href="Inverse-Gamma.html">dinvgamma</a></td>
+<td>The Inverse Gamma Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Inverse-Wishart.html">dinvwish_chol</a></td>
+<td>The Inverse Wishart Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Dirichlet.html">Dirichlet</a></td>
+<td>The Dirichlet Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Dirichlet.html">dirichlet</a></td>
+<td>The Dirichlet Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">distClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="distributionInfo.html">distributionInfo</a></td>
+<td>Get information about a distribution</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">distributionsClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="LKJ.html">dlkj</a></td>
+<td>The LKJ Distribution for the Cholesky Factor of a Correlation Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="LKJ.html">dlkj_corr_cholesky</a></td>
+<td>The LKJ Distribution for the Cholesky Factor of a Correlation Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="MultivariateNormal.html">dmnorm_chol</a></td>
+<td>The Multivariate Normal Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Multinomial.html">dmulti</a></td>
+<td>The Multinomial Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Multivariate-t.html">dmvt_chol</a></td>
+<td>The Multivariate t Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Double-Exponential.html">Double-Exponential</a></td>
+<td>The Double Exponential (Laplace) Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">DPmeasure</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">dsqrtinvgamma</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="t.html">dt_nonstandard</a></td>
+<td>The t Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Wishart.html">dwish_chol</a></td>
+<td>The Wishart Distribution</td></tr>
+</table>
+
+<h2><a id="E">-- E --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="nimEigen.html">eigen</a></td>
+<td>Spectral Decomposition of a Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">eigenize_nimbleNullaryClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="eigenNimbleList.html">eigenNimbleList</a></td>
+<td>eigenNimbleList definition</td></tr>
+<tr><td style="width: 25%;"><a href="waic.html">enableWAIC</a></td>
+<td>Using WAIC</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">expandNodeNames</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">expit</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+<tr><td style="width: 25%;"><a href="Exponential.html">Exponential</a></td>
+<td>The Exponential Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">exprClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">exprTypeInfoClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="extractControlElement.html">extractControlElement</a></td>
+<td>Extract named elements from MCMC sampler control list</td></tr>
+</table>
+
+<h2><a id="F">-- F --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="nimble-internal.html">findMethodsInExprClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="flat.html">flat</a></td>
+<td>The Improper Uniform Distribution</td></tr>
+</table>
+
+<h2><a id="G">-- G --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="getBound.html">getBound</a></td>
+<td>Get value of bound of a stochastic node in a model</td></tr>
+<tr><td style="width: 25%;"><a href="getBUGSexampleDir.html">getBUGSexampleDir</a></td>
+<td>Get the directory path to one of the classic BUGS examples installed with NIMBLE package</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">getCode</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="getConditionallyIndependentSets.html">getConditionallyIndependentSets</a></td>
+<td>Get a list of conditionally independent sets of nodes in a nimble model</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">getConstants</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="getDefinition.html">getDefinition</a></td>
+<td>Get nimbleFunction definition</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">getDependencies</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">getDependenciesList</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">getDimension</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">getDistribution</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="distributionInfo.html">getDistributionInfo</a></td>
+<td>Get information about a distribution</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">getDownstream</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="nodeFunctions.html">getLogProb</a></td>
+<td>calculate, calculateDiff, simulate, or get the current log probabilities (densities) a set of nodes in a NIMBLE model</td></tr>
+<tr><td style="width: 25%;"><a href="simNodes.html">getLogProbNodes</a></td>
+<td>Basic nimbleFunctions for calculate, simulate, and getLogProb with a set of nodes</td></tr>
+<tr><td style="width: 25%;"><a href="simNodesMV.html">getLogProbNodesMV</a></td>
+<td>Basic nimbleFunctions for using a NIMBLE model with sets of stored values</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">getMacroInits</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="getMacroParameters.html">getMacroParameters</a></td>
+<td>EXPERIMENTAL: Get list of parameter names generated by model macros</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">getMonitors</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">getMonitors2</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="getNimbleOption.html">getNimbleOption</a></td>
+<td>Get NIMBLE Option</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">getNimbleProject</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">getNodeFunctionIndexedInfo</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">getNodeNames</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="getParam.html">getParam</a></td>
+<td>Get value of a parameter of a stochastic node in a model</td></tr>
+<tr><td style="width: 25%;"><a href="distributionInfo.html">getParamNames</a></td>
+<td>Get information about a distribution</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">getParents</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">getSamplerExecutionOrder</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">getSamplers</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="getSamplesDPmeasure.html">getSamplesDPmeasure</a></td>
+<td>Get posterior samples for a Dirichlet process measure</td></tr>
+<tr><td style="width: 25%;"><a href="getsize.html">getsize</a></td>
+<td>Returns number of rows of modelValues</td></tr>
+<tr><td style="width: 25%;"><a href="distributionInfo.html">getType</a></td>
+<td>Get information about a distribution</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">getVarNames</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="waic.html">getWAIC</a></td>
+<td>Using WAIC</td></tr>
+<tr><td style="width: 25%;"><a href="waic.html">getWAICdetails</a></td>
+<td>Using WAIC</td></tr>
+</table>
+
+<h2><a id="H">-- H --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="flat.html">halfflat</a></td>
+<td>The Improper Uniform Distribution</td></tr>
+</table>
+
+<h2><a id="I">-- I --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="nimble-math.html">icloglog</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+<tr><td style="width: 25%;"><a href="identityMatrix.html">identityMatrix</a></td>
+<td>Create an Identity matrix (Deprecated)</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">ilogit</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">indexedNodeInfoTableClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">initializeInfo</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="initializeModel.html">initializeModel</a></td>
+<td>Performs initialization of nimble model node values and log probabilities</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">inprod</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+<tr><td style="width: 25%;"><a href="nimNumeric.html">integer</a></td>
+<td>Creates numeric, integer or logical vectors for use in nimbleFunctions</td></tr>
+<tr><td style="width: 25%;"><a href="nimIntegrate.html">integrate</a></td>
+<td>Integration of One-Dimensional Functions</td></tr>
+<tr><td style="width: 25%;"><a href="Interval.html">Interval</a></td>
+<td>Interval calculations</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">inverse</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+<tr><td style="width: 25%;"><a href="Inverse-Gamma.html">Inverse-Gamma</a></td>
+<td>The Inverse Gamma Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Inverse-Wishart.html">Inverse-Wishart</a></td>
+<td>The Inverse Wishart Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Inverse-Wishart.html">inverse-wishart</a></td>
+<td>The Inverse Wishart Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">iprobit</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">is.Cmodel</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">is.Cnf</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">is.model</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-R-functions.html">is.na</a></td>
+<td>NIMBLE language functions for R-like vector construction</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-R-functions.html">is.nan</a></td>
+<td>NIMBLE language functions for R-like vector construction</td></tr>
+<tr><td style="width: 25%;"><a href="is.nf.html">is.nf</a></td>
+<td>check if a nimbleFunction</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">is.nfGenerator</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="is.nl.html">is.nl</a></td>
+<td>check if a nimbleList</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">is.Rmodel</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">isBinary</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">isData</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">isDeterm</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">isDiscrete</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">isEndNode</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">isMultivariate</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">isStoch</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">isTruncated</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">isUnivariate</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="distributionInfo.html">isUserDefined</a></td>
+<td>Get information about a distribution</td></tr>
+</table>
+
+<h2><a id="K">-- K --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="nimble-internal.html">keywordInfoClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+</table>
+
+<h2><a id="L">-- L --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="laplace.html">Laplace</a></td>
+<td>Laplace approximation and adaptive Gauss-Hermite quadrature</td></tr>
+<tr><td style="width: 25%;"><a href="laplace.html">laplace</a></td>
+<td>Laplace approximation and adaptive Gauss-Hermite quadrature</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-R-functions.html">length</a></td>
+<td>NIMBLE language functions for R-like vector construction</td></tr>
+<tr><td style="width: 25%;"><a href="LKJ.html">LKJ</a></td>
+<td>The LKJ Distribution for the Cholesky Factor of a Correlation Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="LKJ.html">lkj</a></td>
+<td>The LKJ Distribution for the Cholesky Factor of a Correlation Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="LKJ.html">lkj_corr</a></td>
+<td>The LKJ Distribution for the Cholesky Factor of a Correlation Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="LKJ.html">lkj_corr_cholesky</a></td>
+<td>The LKJ Distribution for the Cholesky Factor of a Correlation Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">logdet</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">logfact</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">loggam</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+<tr><td style="width: 25%;"><a href="nimNumeric.html">logical</a></td>
+<td>Creates numeric, integer or logical vectors for use in nimbleFunctions</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">logit</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+</table>
+
+<h2><a id="M">-- M --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="makeBoundInfo.html">makeBoundInfo</a></td>
+<td>Make an object of information about a model-bound pairing for getBound. Used internally</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">MakeCustomModelClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">makeCustomModelValuesClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="makeModelDerivsInfo.html">makeModelDerivsInfo</a></td>
+<td>Information on model structure used for derivatives</td></tr>
+<tr><td style="width: 25%;"><a href="makeParamInfo.html">makeParamInfo</a></td>
+<td>Make an object of information about a model-parameter pairing for getParam.  Used internally</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">mapsClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimMatrix.html">matrix</a></td>
+<td>Creates matrix or array objects for use in nimbleFunctions</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">MCEM_mcse</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">MCMCconf</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">MCMCconf-class</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">mcmc_createModelObject</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">messageIfVerbose</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">modelBaseClass</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">modelBaseClass-class</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelDefClass-class.html">modelDefClass</a></td>
+<td>Class for NIMBLE model definition</td></tr>
+<tr><td style="width: 25%;"><a href="modelDefClass-class.html">modelDefClass-class</a></td>
+<td>Class for NIMBLE model definition</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">modelDefInfoClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="modelInitialization.html">modelInitialization</a></td>
+<td>Information on initial values in a NIMBLE model</td></tr>
+<tr><td style="width: 25%;"><a href="modelValues.html">modelValues</a></td>
+<td>Create a NIMBLE modelValues Object</td></tr>
+<tr><td style="width: 25%;"><a href="modelValuesBaseClass-class.html">modelValuesBaseClass</a></td>
+<td>Class 'modelValuesBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelValuesBaseClass-class.html">modelValuesBaseClass-class</a></td>
+<td>Class 'modelValuesBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelValuesConf.html">modelValuesConf</a></td>
+<td>Create the confs for a custom NIMBLE modelValues object</td></tr>
+<tr><td style="width: 25%;"><a href="Multinomial.html">Multinomial</a></td>
+<td>The Multinomial Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Multinomial.html">multinomial</a></td>
+<td>The Multinomial Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Multivariate-t.html">Multivariate-t</a></td>
+<td>The Multivariate t Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Multivariate-t.html">multivariate-t</a></td>
+<td>The Multivariate t Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="MultivariateNormal.html">MultivariateNormal</a></td>
+<td>The Multivariate Normal Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">mvInfoClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="Multivariate-t.html">mvt</a></td>
+<td>The Multivariate t Distribution</td></tr>
+</table>
+
+<h2><a id="N">-- N --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">newModel</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">nfCompilationInfoClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nfMethod.html">nfMethod</a></td>
+<td>access (call) a member function of a nimbleFunction</td></tr>
+<tr><td style="width: 25%;"><a href="nfVar.html">nfVar</a></td>
+<td>Access or set a member variable of a nimbleFunction</td></tr>
+<tr><td style="width: 25%;"><a href="nfVar.html">nfVar&lt;-</a></td>
+<td>Access or set a member variable of a nimbleFunction</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">nf_preProcessMemberDataObject</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimMatrix.html">nimArray</a></td>
+<td>Creates matrix or array objects for use in nimbleFunctions</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-R-functions.html">nimble-R-functions</a></td>
+<td>NIMBLE language functions for R-like vector construction</td></tr>
+<tr><td style="width: 25%;"><a href="nimbleCode.html">nimbleCode</a></td>
+<td>Turn BUGS model code into an object for use in 'nimbleModel' or 'readBUGSmodel'</td></tr>
+<tr><td style="width: 25%;"><a href="nimbleExternalCall.html">nimbleExternalCall</a></td>
+<td>Create a nimbleFunction that wraps a call to external compiled code</td></tr>
+<tr><td style="width: 25%;"><a href="nimbleFunction.html">nimbleFunction</a></td>
+<td>create a nimbleFunction</td></tr>
+<tr><td style="width: 25%;"><a href="nimbleFunctionBase-class.html">nimbleFunctionBase</a></td>
+<td>Class 'nimbleFunctionBase'</td></tr>
+<tr><td style="width: 25%;"><a href="nimbleFunctionBase-class.html">nimbleFunctionBase-class</a></td>
+<td>Class 'nimbleFunctionBase'</td></tr>
+<tr><td style="width: 25%;"><a href="nimbleFunctionList-class.html">nimbleFunctionList</a></td>
+<td>Create a list of nimbleFunctions</td></tr>
+<tr><td style="width: 25%;"><a href="nimbleFunctionList-class.html">nimbleFunctionList-class</a></td>
+<td>Create a list of nimbleFunctions</td></tr>
+<tr><td style="width: 25%;"><a href="nimbleFunctionVirtual.html">nimbleFunctionVirtual</a></td>
+<td>create a virtual nimbleFunction, a base class for other nimbleFunctions</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">nimbleGraphClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">nimbleInternalFunctions</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimbleList.html">nimbleList</a></td>
+<td>create a nimbleList</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">nimbleListDefClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimbleMCMC.html">nimbleMCMC</a></td>
+<td>Executes one or more chains of NIMBLE's default MCMC algorithm, for a model specified using BUGS code</td></tr>
+<tr><td style="width: 25%;"><a href="nimbleModel.html">nimbleModel</a></td>
+<td>Create a NIMBLE model from BUGS code</td></tr>
+<tr><td style="width: 25%;"><a href="nimbleOptions.html">nimbleOptions</a></td>
+<td>NIMBLE Options Settings</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">nimbleProjectClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimbleRcall.html">nimbleRcall</a></td>
+<td>Make an R function callable from compiled nimbleFunctions (including nimbleModels).</td></tr>
+<tr><td style="width: 25%;"><a href="nimbleType-class.html">nimbleType</a></td>
+<td>create a nimbleType object</td></tr>
+<tr><td style="width: 25%;"><a href="nimbleType-class.html">nimbleType-class</a></td>
+<td>create a nimbleType object</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">nimbleUserNamespace</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-R-functions.html">nimC</a></td>
+<td>NIMBLE language functions for R-like vector construction</td></tr>
+<tr><td style="width: 25%;"><a href="nimCat.html">nimCat</a></td>
+<td>cat function for use in nimbleFunctions</td></tr>
+<tr><td style="width: 25%;"><a href="nimCopy.html">nimCopy</a></td>
+<td>Copying function for NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimDerivs.html">nimDerivs</a></td>
+<td>Nimble Derivatives</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">nimDerivsInfoClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimDim.html">nimDim</a></td>
+<td>return sizes of an object whether it is a vector, matrix or array</td></tr>
+<tr><td style="width: 25%;"><a href="nimEigen.html">nimEigen</a></td>
+<td>Spectral Decomposition of a Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">nimEquals</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+<tr><td style="width: 25%;"><a href="nimNumeric.html">nimInteger</a></td>
+<td>Creates numeric, integer or logical vectors for use in nimbleFunctions</td></tr>
+<tr><td style="width: 25%;"><a href="nimIntegrate.html">nimIntegrate</a></td>
+<td>Integration of One-Dimensional Functions</td></tr>
+<tr><td style="width: 25%;"><a href="nimNumeric.html">nimLogical</a></td>
+<td>Creates numeric, integer or logical vectors for use in nimbleFunctions</td></tr>
+<tr><td style="width: 25%;"><a href="nimMatrix.html">nimMatrix</a></td>
+<td>Creates matrix or array objects for use in nimbleFunctions</td></tr>
+<tr><td style="width: 25%;"><a href="nimNumeric.html">nimNumeric</a></td>
+<td>Creates numeric, integer or logical vectors for use in nimbleFunctions</td></tr>
+<tr><td style="width: 25%;"><a href="nimOptim.html">nimOptim</a></td>
+<td>General-purpose Optimization</td></tr>
+<tr><td style="width: 25%;"><a href="nimOptimDefaultControl.html">nimOptimDefaultControl</a></td>
+<td>Creates a default 'control' argument for 'nimOptim'.</td></tr>
+<tr><td style="width: 25%;"><a href="nimOptimMethod.html">nimOptimMethod</a></td>
+<td>Set or get an optimization function to be used by 'nimOptim'</td></tr>
+<tr><td style="width: 25%;"><a href="nimPrint.html">nimPrint</a></td>
+<td>print function for use in nimbleFunctions</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-R-functions.html">nimRep</a></td>
+<td>NIMBLE language functions for R-like vector construction</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">nimRound</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-R-functions.html">nimSeq</a></td>
+<td>NIMBLE language functions for R-like vector construction</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">nimStep</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+<tr><td style="width: 25%;"><a href="nimStop.html">nimStop</a></td>
+<td>Halt execution of a nimbleFunction function method.  Part of the NIMBLE language</td></tr>
+<tr><td style="width: 25%;"><a href="nimSvd.html">nimSvd</a></td>
+<td>Singular Value Decomposition of a Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">nimSwitch</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">nlCompilationInfoClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nodeFunctions.html">nodeFunctions</a></td>
+<td>calculate, calculateDiff, simulate, or get the current log probabilities (densities) a set of nodes in a NIMBLE model</td></tr>
+<tr><td style="width: 25%;"><a href="nimNumeric.html">numeric</a></td>
+<td>Creates numeric, integer or logical vectors for use in nimbleFunctions</td></tr>
+</table>
+
+<h2><a id="O">-- O --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="optimControlNimbleList.html">optimControlNimbleList</a></td>
+<td>Data type for the 'control' parameter of 'nimOptim'</td></tr>
+<tr><td style="width: 25%;"><a href="optimDefaultControl.html">optimDefaultControl</a></td>
+<td>Creates a deafult 'control' argument for 'optim' (just an empty list).</td></tr>
+<tr><td style="width: 25%;"><a href="optimResultNimbleList.html">optimResultNimbleList</a></td>
+<td>Data type for the return value of 'nimOptim'</td></tr>
+</table>
+
+<h2><a id="P">-- P --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="parameterTransform.html">parameterTransform</a></td>
+<td>Automated transformations of model nodes to unconstrained scales</td></tr>
+<tr><td style="width: 25%;"><a href="Double-Exponential.html">pdexp</a></td>
+<td>The Double Exponential (Laplace) Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Exponential.html">pexp_nimble</a></td>
+<td>The Exponential Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">phi</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+<tr><td style="width: 25%;"><a href="Inverse-Gamma.html">pinvgamma</a></td>
+<td>The Inverse Gamma Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">posteriorClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">posterior_predictive</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">pow</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+<tr><td style="width: 25%;"><a href="pow_int.html">pow_int</a></td>
+<td>Power function for integer-valued exponent</td></tr>
+<tr><td style="width: 25%;"><a href="distributionInfo.html">pqDefined</a></td>
+<td>Get information about a distribution</td></tr>
+<tr><td style="width: 25%;"><a href="nimPrint.html">print</a></td>
+<td>print function for use in nimbleFunctions</td></tr>
+<tr><td style="width: 25%;"><a href="printErrors.html">printErrors</a></td>
+<td>Print error messages after failed compilation</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">printMonitors</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">printSamplers</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">prior_samples</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-math.html">probit</a></td>
+<td>Mathematical functions for BUGS and nimbleFunction programming</td></tr>
+<tr><td style="width: 25%;"><a href="t.html">pt_nonstandard</a></td>
+<td>The t Distribution</td></tr>
+</table>
+
+<h2><a id="Q">-- Q --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="Double-Exponential.html">qdexp</a></td>
+<td>The Double Exponential (Laplace) Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Exponential.html">qexp_nimble</a></td>
+<td>The Exponential Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Inverse-Gamma.html">qinvgamma</a></td>
+<td>The Inverse Gamma Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="t.html">qt_nonstandard</a></td>
+<td>The t Distribution</td></tr>
+</table>
+
+<h2><a id="R">-- R --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="rankSample.html">rankSample</a></td>
+<td>Generates a weighted sample (with replacement) of ranks</td></tr>
+<tr><td style="width: 25%;"><a href="CAR-Normal.html">rcar_normal</a></td>
+<td>The CAR-Normal Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="CAR-Proper.html">rcar_proper</a></td>
+<td>The CAR-Proper Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Categorical.html">rcat</a></td>
+<td>The Categorical Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">RCfunctionCompileClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">RCfunInfoClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="Constraint.html">rconstraint</a></td>
+<td>Constraint calculations in NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="ChineseRestaurantProcess.html">rCRP</a></td>
+<td>The Chinese Restaurant Process Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Double-Exponential.html">rdexp</a></td>
+<td>The Double Exponential (Laplace) Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Dirichlet.html">rdirch</a></td>
+<td>The Dirichlet Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="readBUGSmodel.html">readBUGSmodel</a></td>
+<td>Create a NIMBLE BUGS model from a variety of input formats, including BUGS model files</td></tr>
+<tr><td style="width: 25%;"><a href="registerDistributions.html">registerDistributions</a></td>
+<td>Add user-supplied distributions for use in NIMBLE BUGS models</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">removeSamplers</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-R-functions.html">rep</a></td>
+<td>NIMBLE language functions for R-like vector construction</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">resetData</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">resetMonitors</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="resize.html">resize</a></td>
+<td>Resizes a modelValues object</td></tr>
+<tr><td style="width: 25%;"><a href="Exponential.html">rexp_nimble</a></td>
+<td>The Exponential Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="flat.html">rflat</a></td>
+<td>The Improper Uniform Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="flat.html">rhalfflat</a></td>
+<td>The Improper Uniform Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Interval.html">rinterval</a></td>
+<td>Interval calculations</td></tr>
+<tr><td style="width: 25%;"><a href="Inverse-Gamma.html">rinvgamma</a></td>
+<td>The Inverse Gamma Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Inverse-Wishart.html">rinvwish_chol</a></td>
+<td>The Inverse Wishart Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">RJ_fixed_prior</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">RJ_indicator</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">RJ_toggled</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="LKJ.html">rlkj</a></td>
+<td>The LKJ Distribution for the Cholesky Factor of a Correlation Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="LKJ.html">rlkj_corr_cholesky</a></td>
+<td>The LKJ Distribution for the Cholesky Factor of a Correlation Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">RMakeCustomModelClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="Rmatrix2mvOneVar.html">Rmatrix2mvOneVar</a></td>
+<td>Set values of one variable of a modelValues object from an R matrix</td></tr>
+<tr><td style="width: 25%;"><a href="MultivariateNormal.html">rmnorm_chol</a></td>
+<td>The Multivariate Normal Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="RmodelBaseClass-class.html">RmodelBaseClass</a></td>
+<td>Class 'RmodelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="RmodelBaseClass-class.html">RmodelBaseClass-class</a></td>
+<td>Class 'RmodelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="Multinomial.html">rmulti</a></td>
+<td>The Multinomial Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Multivariate-t.html">rmvt_chol</a></td>
+<td>The Multivariate t Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">rsqrtinvgamma</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="t.html">rt_nonstandard</a></td>
+<td>The t Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="run.time.html">run.time</a></td>
+<td>Time execution of NIMBLE code</td></tr>
+<tr><td style="width: 25%;"><a href="runLaplace.html">runAGHQ</a></td>
+<td>Combine steps of running Laplace or adaptive Gauss-Hermite quadrature approximation</td></tr>
+<tr><td style="width: 25%;"><a href="runCrossValidate.html">runCrossValidate</a></td>
+<td>Perform k-fold cross-validation on a NIMBLE model fit by MCMC</td></tr>
+<tr><td style="width: 25%;"><a href="runLaplace.html">runLaplace</a></td>
+<td>Combine steps of running Laplace or adaptive Gauss-Hermite quadrature approximation</td></tr>
+<tr><td style="width: 25%;"><a href="runMCMC.html">runMCMC</a></td>
+<td>Run one or more chains of an MCMC algorithm and return samples, summary and/or WAIC</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">RW</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="Wishart.html">rwish_chol</a></td>
+<td>The Wishart Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">RW_block</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">RW_block_lkj_corr_cholesky</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">RW_dirichlet</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">RW_lkj_corr_cholesky</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">RW_llFunction</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">RW_llFunction_block</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">RW_multinomial</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">RW_PF</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">RW_PF_block</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">RW_wishart</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+</table>
+
+<h2><a id="S">-- S --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="samplers.html">sampler</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">samplers</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_AF_slice</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_barker</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_BASE</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_binary</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_CAR_normal</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_CAR_proper</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_categorical</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_crossLevel</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_CRP</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_CRP_concentration</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_ess</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_noncentered</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_polyagamma</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_posterior_predictive</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_prior_samples</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_RJ_fixed_prior</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_RJ_indicator</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_RJ_toggled</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_RW</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_RW_block</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_RW_block_lkj_corr_cholesky</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_RW_dirichlet</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_RW_lkj_corr_cholesky</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_RW_llFunction</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_RW_llFunction_block</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_RW_multinomial</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_RW_wishart</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_slice</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">sampler_slice_CRP_base_param</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">samplesSummary</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-R-functions.html">seq</a></td>
+<td>NIMBLE language functions for R-like vector construction</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-R-functions.html">seq_along</a></td>
+<td>NIMBLE language functions for R-like vector construction</td></tr>
+<tr><td style="width: 25%;"><a href="setAndCalculate.html">setAndCalculate</a></td>
+<td>Creates a nimbleFunction for setting the values of one or more model nodes, calculating the associated deterministic dependents and logProb values, and returning the total sum log-probability.</td></tr>
+<tr><td style="width: 25%;"><a href="setAndCalculate.html">setAndCalculateDiff</a></td>
+<td>Creates a nimbleFunction for setting the values of one or more model nodes, calculating the associated deterministic dependents and logProb values, and returning the total sum log-probability.</td></tr>
+<tr><td style="width: 25%;"><a href="setAndCalculateOne.html">setAndCalculateOne</a></td>
+<td>Creates a nimbleFunction for setting the value of a scalar model node, calculating the associated deterministic dependents and logProb values, and returning the total sum log-probability.</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">setData</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">setInits</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">setMonitors</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">setMonitors2</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">setSamplerExecutionOrder</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">setSamplers</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="setSize.html">setSize</a></td>
+<td>set the size of a numeric variable in NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">setThin</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="MCMCconf-class.html">setThin2</a></td>
+<td>Class 'MCMCconf'</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">setupCodeTemplateClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="setupMargNodes.html">setupMargNodes</a></td>
+<td>Organize model nodes for marginalization</td></tr>
+<tr><td style="width: 25%;"><a href="setupOutputs.html">setupOutputs</a></td>
+<td>Explicitly declare objects created in setup code to be preserved and compiled as member data</td></tr>
+<tr><td style="width: 25%;"><a href="simNodes.html">simNodes</a></td>
+<td>Basic nimbleFunctions for calculate, simulate, and getLogProb with a set of nodes</td></tr>
+<tr><td style="width: 25%;"><a href="simNodesMV.html">simNodesMV</a></td>
+<td>Basic nimbleFunctions for using a NIMBLE model with sets of stored values</td></tr>
+<tr><td style="width: 25%;"><a href="nodeFunctions.html">simulate</a></td>
+<td>calculate, calculateDiff, simulate, or get the current log probabilities (densities) a set of nodes in a NIMBLE model</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">singleModelValuesAccess</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">singleModelValuesAccessClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="singleVarAccessClass-class.html">singleVarAccessClass</a></td>
+<td>Class 'singleVarAccessClass'</td></tr>
+<tr><td style="width: 25%;"><a href="singleVarAccessClass-class.html">singleVarAccessClass-class</a></td>
+<td>Class 'singleVarAccessClass'</td></tr>
+<tr><td style="width: 25%;"><a href="samplers.html">slice</a></td>
+<td>MCMC Sampling Algorithms</td></tr>
+<tr><td style="width: 25%;"><a href="StickBreakingFunction.html">stickbreaking</a></td>
+<td>The Stick Breaking Function</td></tr>
+<tr><td style="width: 25%;"><a href="StickBreakingFunction.html">StickBreakingFunction</a></td>
+<td>The Stick Breaking Function</td></tr>
+<tr><td style="width: 25%;"><a href="StickBreakingFunction.html">stick_breaking</a></td>
+<td>The Stick Breaking Function</td></tr>
+<tr><td style="width: 25%;"><a href="nimStop.html">stop</a></td>
+<td>Halt execution of a nimbleFunction function method.  Part of the NIMBLE language</td></tr>
+<tr><td style="width: 25%;"><a href="summaryLaplace.html">summaryAGHQ</a></td>
+<td>Summarize results from Laplace or adaptive Gauss-Hermite quadrature approximation</td></tr>
+<tr><td style="width: 25%;"><a href="summaryLaplace.html">summaryLaplace</a></td>
+<td>Summarize results from Laplace or adaptive Gauss-Hermite quadrature approximation</td></tr>
+<tr><td style="width: 25%;"><a href="nimSvd.html">svd</a></td>
+<td>Singular Value Decomposition of a Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="svdNimbleList.html">svdNimbleList</a></td>
+<td>svdNimbleList definition</td></tr>
+</table>
+
+<h2><a id="T">-- T --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="t.html">t</a></td>
+<td>The t Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="testBUGSmodel.html">testBUGSmodel</a></td>
+<td>Tests BUGS examples in the NIMBLE system</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">topologicallySortNodes</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+</table>
+
+<h2><a id="V">-- V --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="valueInCompiledNimbleFunction.html">valueInCompiledNimbleFunction</a></td>
+<td>get or set value of member data from a compiled nimbleFunction using a multi-interface</td></tr>
+<tr><td style="width: 25%;"><a href="values.html">values</a></td>
+<td>Access or set values for a set of nodes in a model</td></tr>
+<tr><td style="width: 25%;"><a href="values.html">values&lt;-</a></td>
+<td>Access or set values for a set of nodes in a model</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">varInfoClass-Class</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+</table>
+
+<h2><a id="W">-- W --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="waic.html">WAIC</a></td>
+<td>Using WAIC</td></tr>
+<tr><td style="width: 25%;"><a href="waic.html">waic</a></td>
+<td>Using WAIC</td></tr>
+<tr><td style="width: 25%;"><a href="waicDetailsNimbleList.html">waicDetailsNimbleList</a></td>
+<td>waicDetailsNimbleList definition</td></tr>
+<tr><td style="width: 25%;"><a href="waicNimbleList.html">waicNimbleList</a></td>
+<td>waicNimbleList definition</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-R-functions.html">which</a></td>
+<td>NIMBLE language functions for R-like vector construction</td></tr>
+<tr><td style="width: 25%;"><a href="Wishart.html">Wishart</a></td>
+<td>The Wishart Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="Wishart.html">wishart</a></td>
+<td>The Wishart Distribution</td></tr>
+<tr><td style="width: 25%;"><a href="withNimbleOptions.html">withNimbleOptions</a></td>
+<td>Temporarily set some NIMBLE options.</td></tr>
+</table>
+
+<h2><a id="misc">-- misc --</a></h2>
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="modelValuesBaseClass-class.html">[,CmodelValues-method,ANY,ANY</a></td>
+<td>Class 'modelValuesBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelValuesBaseClass-class.html">[,CmodelValues-method,character,missing</a></td>
+<td>Class 'modelValuesBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelValuesBaseClass-class.html">[-method</a></td>
+<td>Class 'modelValuesBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">[-method</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="modelValuesBaseClass-class.html">[&lt;--method</a></td>
+<td>Class 'modelValuesBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">[&lt;--method</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">[[-method</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelValuesBaseClass-class.html">[[-method</a></td>
+<td>Class 'modelValuesBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">[[-method</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+<tr><td style="width: 25%;"><a href="modelBaseClass-class.html">[[&lt;--method</a></td>
+<td>Class 'modelBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="modelValuesBaseClass-class.html">[[&lt;--method</a></td>
+<td>Class 'modelValuesBaseClass'</td></tr>
+<tr><td style="width: 25%;"><a href="nimble-internal.html">[[&lt;--method</a></td>
+<td>Functions and Classes Internal to NIMBLE</td></tr>
+</table>
+</div></body></html>

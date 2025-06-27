@@ -1,0 +1,247 @@
+ADNimbleList            Data type for the return value of 'nimDerivs'
+ADbreak                 NIMBLE language function to break tracking of
+                        derivatives
+ADproxyModelClass-class
+                        create an ADproxyModelClass object
+BUGSdeclClass-class     BUGSdeclClass contains the information
+                        extracted from one BUGS declaration
+CAR-Normal              The CAR-Normal Distribution
+CAR-Proper              The CAR-Proper Distribution
+CAR_calcNumIslands      Calculate number of islands based on a CAR
+                        adjacency matrix.
+Categorical             The Categorical Distribution
+ChineseRestaurantProcess
+                        The Chinese Restaurant Process Distribution
+CmodelBaseClass-class   Class 'CmodelBaseClass'
+CnimbleFunctionBase-class
+                        Class 'CnimbleFunctionBase'
+Constraint              Constraint calculations in NIMBLE
+Dirichlet               The Dirichlet Distribution
+Double-Exponential      The Double Exponential (Laplace) Distribution
+Exponential             The Exponential Distribution
+Interval                Interval calculations
+Inverse-Gamma           The Inverse Gamma Distribution
+Inverse-Wishart         The Inverse Wishart Distribution
+LKJ                     The LKJ Distribution for the Cholesky Factor of
+                        a Correlation Matrix
+MCMCconf-class          Class 'MCMCconf'
+Multinomial             The Multinomial Distribution
+Multivariate-t          The Multivariate t Distribution
+MultivariateNormal      The Multivariate Normal Distribution
+Rmatrix2mvOneVar        Set values of one variable of a modelValues
+                        object from an R matrix
+RmodelBaseClass-class   Class 'RmodelBaseClass'
+StickBreakingFunction   The Stick Breaking Function
+Wishart                 The Wishart Distribution
+any_na                  Determine if any values in a vector are NA or
+                        NaN
+as.carAdjacency         Convert CAR structural parameters to adjacency,
+                        weights, num format
+as.carCM                Convert weights vector to parameters of
+                        'dcar_proper' distributio
+as.list.modelValuesBaseClass-Class
+                        Functions and Classes Internal to NIMBLE
+asRow                   Turn a numeric vector into a single-row or
+                        single-column matrix
+autoBlock               Automated parameter blocking procedure for
+                        efficient MCMC sampling
+besselK                 Mathematical functions for BUGS and
+                        nimbleFunction programming
+buildAGHQGrid           Build Adaptive Gauss-Hermite Quadrature Grid
+buildAuxiliaryFilter    Placeholder for buildAuxiliaryFilter
+buildBootstrapFilter    Placeholder for buildBootstrapFilter
+buildEnsembleKF         Placeholder for buildEnsembleKF
+buildIteratedFilter2    Placeholder for buildIteratedFilter2
+buildLaplace            Laplace approximation and adaptive
+                        Gauss-Hermite quadrature
+buildLiuWestFilter      Placeholder for buildLiuWestFilter
+buildMCEM               Builds an MCEM algorithm for a given NIMBLE
+                        model
+buildMCMC               Create an MCMC object from a NIMBLE model, or
+                        an MCMC configuration object
+buildMacro              EXPERIMENTAL: Turn a function into a model
+                        macro
+calculateWAIC           Calculating WAIC using an offline algorithm
+carBounds               Calculate bounds for the autocorrelation
+                        parameter of the 'dcar_proper' distribution
+carMaxBound             Calculate the upper bound for the
+                        autocorrelation parameter of the 'dcar_proper'
+                        distribution
+carMinBound             Calculate the lower bound for the
+                        autocorrelation parameter of the 'dcar_proper'
+                        distribution
+checkInterrupt          Check for interrupt (e.g. Ctrl-C) during
+                        nimbleFunction execution. Part of the NIMBLE
+                        language.
+clearCompiled           Clear compiled objects from a project and
+                        unload shared library
+codeBlockClass-class    Class 'codeBlockClass'
+compileNimble           compile NIMBLE models and nimbleFunctions
+configureMCMC           Build the MCMCconf object for construction of
+                        an MCMC object
+configureRJ             Configure Reversible Jump for Variable
+                        Selection
+decide                  Makes the Metropolis-Hastings acceptance
+                        decision, based upon the input (log)
+                        Metropolis-Hastings ratio
+decideAndJump           Creates a nimbleFunction for executing the
+                        Metropolis-Hastings jumping decision, and
+                        updating values in the model, or in a carbon
+                        copy modelValues object, accordingly.
+declare                 Explicitly declare a variable in run-time code
+                        of a nimbleFunction
+deregisterDistributions
+                        Remove user-supplied distributions from use in
+                        NIMBLE BUGS models
+distributionInfo        Get information about a distribution
+eigenNimbleList         eigenNimbleList definition
+extractControlElement   Extract named elements from MCMC sampler
+                        control list
+flat                    The Improper Uniform Distribution
+getBUGSexampleDir       Get the directory path to one of the classic
+                        BUGS examples installed with NIMBLE package
+getBound                Get value of bound of a stochastic node in a
+                        model
+getConditionallyIndependentSets
+                        Get a list of conditionally independent sets of
+                        nodes in a nimble model
+getDefinition           Get nimbleFunction definition
+getMacroParameters      EXPERIMENTAL: Get list of parameter names
+                        generated by model macros
+getNimbleOption         Get NIMBLE Option
+getParam                Get value of a parameter of a stochastic node
+                        in a model
+getSamplesDPmeasure     Get posterior samples for a Dirichlet process
+                        measure
+getsize                 Returns number of rows of modelValues
+identityMatrix          Create an Identity matrix (Deprecated)
+initializeModel         Performs initialization of nimble model node
+                        values and log probabilities
+is.nf                   check if a nimbleFunction
+is.nl                   check if a nimbleList
+makeBoundInfo           Make an object of information about a
+                        model-bound pairing for getBound. Used
+                        internally
+makeModelDerivsInfo     Information on model structure used for
+                        derivatives
+makeParamInfo           Make an object of information about a
+                        model-parameter pairing for getParam.  Used
+                        internally
+modelBaseClass-class    Class 'modelBaseClass'
+modelDefClass-class     Class for NIMBLE model definition
+modelInitialization     Information on initial values in a NIMBLE model
+modelValues             Create a NIMBLE modelValues Object
+modelValuesBaseClass-class
+                        Class 'modelValuesBaseClass'
+modelValuesConf         Create the confs for a custom NIMBLE
+                        modelValues object
+nfMethod                access (call) a member function of a
+                        nimbleFunction
+nfVar                   Access or set a member variable of a
+                        nimbleFunction
+nimCat                  cat function for use in nimbleFunctions
+nimCopy                 Copying function for NIMBLE
+nimDerivs               Nimble Derivatives
+nimDim                  return sizes of an object whether it is a
+                        vector, matrix or array
+nimEigen                Spectral Decomposition of a Matrix
+nimIntegrate            Integration of One-Dimensional Functions
+nimMatrix               Creates matrix or array objects for use in
+                        nimbleFunctions
+nimNumeric              Creates numeric, integer or logical vectors for
+                        use in nimbleFunctions
+nimOptim                General-purpose Optimization
+nimOptimDefaultControl
+                        Creates a default 'control' argument for
+                        'nimOptim'.
+nimOptimMethod          Set or get an optimization function to be used
+                        by 'nimOptim'
+nimPrint                print function for use in nimbleFunctions
+nimStop                 Halt execution of a nimbleFunction function
+                        method.  Part of the NIMBLE language
+nimSvd                  Singular Value Decomposition of a Matrix
+nimble-R-functions      NIMBLE language functions for R-like vector
+                        construction
+nimbleCode              Turn BUGS model code into an object for use in
+                        'nimbleModel' or 'readBUGSmodel'
+nimbleExternalCall      Create a nimbleFunction that wraps a call to
+                        external compiled code
+nimbleFunction          create a nimbleFunction
+nimbleFunctionBase-class
+                        Class 'nimbleFunctionBase'
+nimbleFunctionList-class
+                        Create a list of nimbleFunctions
+nimbleFunctionVirtual   create a virtual nimbleFunction, a base class
+                        for other nimbleFunctions
+nimbleList              create a nimbleList
+nimbleMCMC              Executes one or more chains of NIMBLE's default
+                        MCMC algorithm, for a model specified using
+                        BUGS code
+nimbleModel             Create a NIMBLE model from BUGS code
+nimbleOptions           NIMBLE Options Settings
+nimbleRcall             Make an R function callable from compiled
+                        nimbleFunctions (including nimbleModels).
+nimbleType-class        create a nimbleType object
+nodeFunctions           calculate, calculateDiff, simulate, or get the
+                        current log probabilities (densities) a set of
+                        nodes in a NIMBLE model
+optimControlNimbleList
+                        Data type for the 'control' parameter of
+                        'nimOptim'
+optimDefaultControl     Creates a deafult 'control' argument for
+                        'optim' (just an empty list).
+optimResultNimbleList   Data type for the return value of 'nimOptim'
+parameterTransform      Automated transformations of model nodes to
+                        unconstrained scales
+pow_int                 Power function for integer-valued exponent
+printErrors             Print error messages after failed compilation
+rankSample              Generates a weighted sample (with replacement)
+                        of ranks
+readBUGSmodel           Create a NIMBLE BUGS model from a variety of
+                        input formats, including BUGS model files
+registerDistributions   Add user-supplied distributions for use in
+                        NIMBLE BUGS models
+resize                  Resizes a modelValues object
+run.time                Time execution of NIMBLE code
+runCrossValidate        Perform k-fold cross-validation on a NIMBLE
+                        model fit by MCMC
+runLaplace              Combine steps of running Laplace or adaptive
+                        Gauss-Hermite quadrature approximation
+runMCMC                 Run one or more chains of an MCMC algorithm and
+                        return samples, summary and/or WAIC
+sampler_BASE            MCMC Sampling Algorithms
+setAndCalculate         Creates a nimbleFunction for setting the values
+                        of one or more model nodes, calculating the
+                        associated deterministic dependents and logProb
+                        values, and returning the total sum
+                        log-probability.
+setAndCalculateOne      Creates a nimbleFunction for setting the value
+                        of a scalar model node, calculating the
+                        associated deterministic dependents and logProb
+                        values, and returning the total sum
+                        log-probability.
+setSize                 set the size of a numeric variable in NIMBLE
+setupMargNodes          Organize model nodes for marginalization
+setupOutputs            Explicitly declare objects created in setup
+                        code to be preserved and compiled as member
+                        data
+simNodes                Basic nimbleFunctions for calculate, simulate,
+                        and getLogProb with a set of nodes
+simNodesMV              Basic nimbleFunctions for using a NIMBLE model
+                        with sets of stored values
+singleVarAccessClass-class
+                        Class 'singleVarAccessClass'
+summaryLaplace          Summarize results from Laplace or adaptive
+                        Gauss-Hermite quadrature approximation
+svdNimbleList           svdNimbleList definition
+t                       The t Distribution
+testBUGSmodel           Tests BUGS examples in the NIMBLE system
+valueInCompiledNimbleFunction
+                        get or set value of member data from a compiled
+                        nimbleFunction using a multi-interface
+values                  Access or set values for a set of nodes in a
+                        model
+waic                    Using WAIC
+waicDetailsNimbleList   waicDetailsNimbleList definition
+waicNimbleList          waicNimbleList definition
+withNimbleOptions       Temporarily set some NIMBLE options.
