@@ -6,8 +6,6 @@ assign(".lib.loc", Sys.getenv("R_LIB_PATHS"), envir = environment(.libPaths))
 
 trace(utils::download.file, tracer = quote(print(list(url = url, destfile = destfile))), print = FALSE)
 options(download.file.method = "libcurl")
-trace(curl::curl_download, tracer = quote(print(list(url = url))), print = FALSE)
-trace(httr::GET, tracer = quote(print(list(url = url))), print = FALSE)
 
 shiny::runApp(
   Sys.getenv("RE_SHINY_PATH"),

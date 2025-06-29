@@ -5,6 +5,7 @@ import path from 'path'
 import http from 'axios'
 import os from 'os'
 import execa from 'execa'
+import fs from 'fs' //for making file
 
 // Helpers
 const rPath = process.platform === 'darwin' ? 'r-mac' : 'r-linux'
@@ -36,6 +37,19 @@ const rpath = path.join(app.getAppPath(), rPath)
 const libPath = path.join(rpath, 'library')
 const rscript = path.join(rpath, 'bin', 'R')
 const shinyAppPath = path.join(app.getAppPath(), 'shiny')
+
+
+const logPath = path.join(app.getPath('userData'), 'startup-paths.log')
+const logContent = [
+  'Electron App Paths:',
+  `rpath: ${rpath}`,
+  `libPath: ${libPath}`,
+  `rscript: ${rscript}`,
+  `shinyAppPath: ${shinyAppPath}`
+].join('\n')
+
+fs.writeFileSync(logPath, logContent) // log paths so I can find out info if it doesn't work
+
 
 const backgroundColor = '#2c3e50' // electron
 
