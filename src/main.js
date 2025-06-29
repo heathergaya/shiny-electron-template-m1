@@ -95,11 +95,20 @@ const tryStartWebserver = async (attempt, progressCallback, onErrorStartup, onEr
       'R_LIBS_USER': libPath,
       'R_LIBS_SITE': libPath,
       'R_LIB_PATHS': libPath
-    }
+    },
+    stdout: 'pipe',
+    stderr: 'pipe'
   }).catch((e) => {
     shinyProcessAlreadyDead = true
     onError(e)
   })
+  
+  if (rShinyProcess.stdout) {
+  rShinyProcess.stdout.pipe(process.stdout)
+  }
+  if (rShinyProcess.stderr) {
+  rShinyProcess.stderr.pipe(process.stderr)
+  } //print R errors in console when running electron
 
   const url = `http://127.0.0.1:${shinyPort}`
   for (let i = 0; i <= 50; i++) {
