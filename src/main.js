@@ -84,7 +84,8 @@ const tryStartWebserver = async (attempt, progressCallback, onErrorStartup, onEr
     }
   }
 
-  rShinyProcess = execa(rscript, ['--vanilla', '-f', path.join(app.getAppPath(), 'start-shiny.R')], {
+    const logStream = fs.createWriteStream('/tmp/shinydeer-r.log', { flags: 'a' });
+    rShinyProcess = execa(rscript, ['--vanilla', '-f', path.join(app.getAppPath(), 'start-shiny.R')], {
     env: {
       'WITHIN_ELECTRON': '1',
       'RHOME': rpath,
@@ -102,6 +103,9 @@ const tryStartWebserver = async (attempt, progressCallback, onErrorStartup, onEr
     shinyProcessAlreadyDead = true
     onError(e)
   })
+  
+  rShinyProcess.stdout.pipe(logStream);
+  rShinyProcess.stderr.pipe(logStream);
   
   if (rShinyProcess.stdout) {
   rShinyProcess.stdout.pipe(process.stdout)
