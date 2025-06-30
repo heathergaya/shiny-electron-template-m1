@@ -2,7 +2,7 @@
 
 # Script that starts the shiny webserver
 # Parameters are supplied using environment variables
-#assign(".lib.loc", Sys.getenv("R_LIB_PATHS"), envir = environment(.libPaths))
+assign(".lib.loc", Sys.getenv("R_LIB_PATHS"), envir = environment(.libPaths))
 
 trace(utils::download.file, tracer = quote(print(list(url = url, destfile = destfile))), print = FALSE)
 options(download.file.method = "libcurl")
