@@ -110,7 +110,6 @@ const tryStartWebserver = async (attempt, progressCallback, onErrorStartup, onEr
   onError(e);
 })
 
-  })
   
   rShinyProcess.stdout.pipe(logStream);
   rShinyProcess.stderr.pipe(logStream);

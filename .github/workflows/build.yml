@@ -32,6 +32,30 @@ jobs:
         with:
           name: linux-deb
           path: out/make/deb/**/*.deb
+          
+build-linux2:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Make Linux .deb package
+        run: npx electron-forge make --platform=linux --arch=amd64
+
+      - name: Upload .deb artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-deb
+          path: out/make/deb/**/*.deb
 
   build-macos:
     runs-on: macos-latest
@@ -53,4 +77,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: macos-zip
-          path: out/make/zip/darwin/x64/*.zip
+          path: out/make/zip/darwin/**/*.zip
