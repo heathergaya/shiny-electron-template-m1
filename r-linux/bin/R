@@ -18,10 +18,10 @@ if test "${R_HOME_DIR}" = "/usr/lib/shinydeer/resources/app/r-linux/bin/R"; then
           libnn_fallback=lib64
         ;;
      esac
-     if [ -x "/home/parallels/R/${libnn}/R/bin/exec/R" ]; then
-        R_HOME_DIR="/home/parallels/R/${libnn}/R"
-     elif [ -x "/home/parallels/R/${libnn_fallback}/R/bin/exec/R" ]; then
-        R_HOME_DIR="/home/parallels/R/${libnn_fallback}/R"
+     if [ -x "/usr/lib/shinydeer/resources/app/r-linux/bin/exec/R" ]; then
+        R_HOME_DIR="/usr/lib/shinydeer/resources/app/r-linux/bin/R"
+     elif [ -x "/usr/lib/shinydeer/resources/app/r-linux/bin/exec/R" ]; then
+        R_HOME_DIR="/usr/lib/shinydeer/resources/app/r-linux/bin/R"
      ## else -- leave alone (might be a sub-arch)
      fi
      ;;
