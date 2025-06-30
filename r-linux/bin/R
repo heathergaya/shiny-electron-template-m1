@@ -1,7 +1,9 @@
 #!/bin/bash
 # Shell wrapper for R executable.
 
-#R_HOME_DIR=/usr/lib/shinydeer/resources/app/r-linux/bin/R
+R_HOME_DIR=/usr/lib/shinydeer/resources/app/r-linux/bin/R
+echo "${R_HOME_DIR}"
+
 if test "${R_HOME_DIR}" = "/usr/lib/shinydeer/resources/app/r-linux/bin/R"; then
    case "linux-gnu" in
    linux*)
