@@ -33,7 +33,7 @@ jobs:
           name: linux-deb
           path: out/make/deb/**/*.deb
           
-build-linux2:
+  build-linux2:
     runs-on: ubuntu-latest
 
     steps:
@@ -54,7 +54,7 @@ build-linux2:
       - name: Upload .deb artifact
         uses: actions/upload-artifact@v4
         with:
-          name: linux-deb
+          name: linux-deb2
           path: out/make/deb/**/*.deb
 
   build-macos:
