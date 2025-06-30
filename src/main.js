@@ -84,7 +84,12 @@ const tryStartWebserver = async (attempt, progressCallback, onErrorStartup, onEr
     }
   }
 
-    const logStream = fs.createWriteStream('/tmp/shinydeer-r.log', { flags: 'a' });
+    const logStream = fs.createWriteStream(path.join(app.getPath('userData'), 'r-output.log'), { flags: 'a' });
+
+    console.log('About to start R process...');
+    console.log(`Rscript path: ${rscript}`);
+    console.log(`R script file: ${path.join(app.getAppPath(), 'start-shiny.R')}`);
+
     rShinyProcess = execa(rscript, ['--vanilla', '-f', path.join(app.getAppPath(), 'start-shiny.R')], {
     env: {
       'WITHIN_ELECTRON': '1',
@@ -100,8 +105,11 @@ const tryStartWebserver = async (attempt, progressCallback, onErrorStartup, onEr
     stdout: 'pipe',
     stderr: 'pipe'
   }).catch((e) => {
-    shinyProcessAlreadyDead = true
-    onError(e)
+  shinyProcessAlreadyDead = true;
+  console.error('R process failed to start:', e);
+  onError(e);
+})
+
   })
   
   rShinyProcess.stdout.pipe(logStream);
