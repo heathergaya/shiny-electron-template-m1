@@ -1,8 +1,8 @@
 #!/bin/bash
 # Shell wrapper for R executable.
 
-R_HOME_DIR=/home/parallels/R/lib/R
-if test "${R_HOME_DIR}" = "/home/parallels/R/lib/R"; then
+#R_HOME_DIR=/usr/lib/shinydeer/resources/app/r-linux/bin/R
+if test "${R_HOME_DIR}" = "/usr/lib/shinydeer/resources/app/r-linux/bin/R"; then
    case "linux-gnu" in
    linux*)
      run_arch=`uname -m`
@@ -32,11 +32,11 @@ if test -n "${R_HOME}" && \
 fi
 R_HOME="${R_HOME_DIR}"
 export R_HOME
-R_SHARE_DIR=/home/parallels/R/lib/R/share
+R_SHARE_DIR=/usr/lib/shinydeer/resources/app/r-linux/share/R
 export R_SHARE_DIR
-R_INCLUDE_DIR=/home/parallels/R/lib/R/include
+R_INCLUDE_DIR=/usr/lib/shinydeer/resources/app/r-linux/include
 export R_INCLUDE_DIR
-R_DOC_DIR=/home/parallels/R/lib/R/doc
+R_DOC_DIR=/usr/lib/shinydeer/resources/app/r-linux/doc
 export R_DOC_DIR
 
 # Since this script can be called recursively, we allow R_ARCH to
